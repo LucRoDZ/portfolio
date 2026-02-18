@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "Lucas ZIVAN - Portfolio",
-  description: "Portfolio de Lucas ZIVAN, développeur full stack passionné de 3D et UI/UX. Découvrez mes projets et compétences en Next.js, React, Three.js et plus encore.",
-  keywords: ["développeur", "portfolio", "Next.js", "React", "Three.js", "TypeScript", "full stack"],
+  title: "Lucas ZIVAN — Full Stack Developer",
+  description: "Portfolio de Lucas ZIVAN, développeur full stack étudiant à EPITA. Spécialisé en React, Next.js, TypeScript et développement 3D interactif.",
+  keywords: ["développeur", "full stack", "portfolio", "Next.js", "React", "Three.js", "TypeScript", "EPITA"],
   authors: [{ name: "Lucas ZIVAN" }],
   openGraph: {
-    title: "Lucas ZIVAN - Portfolio",
-    description: "Portfolio de développeur full stack",
+    title: "Lucas ZIVAN — Full Stack Developer",
+    description: "Portfolio premium d'un développeur full stack passionné",
     type: "website",
   },
 };
@@ -32,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased noise`}
       >
         {children}
       </body>

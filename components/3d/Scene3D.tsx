@@ -1,32 +1,27 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Float } from '@react-three/drei';
+import { PerspectiveCamera } from '@react-three/drei';
 import { Suspense } from 'react';
 import { FloatingGeometry } from './FloatingGeometry';
 
 export function Scene3D() {
   return (
-    <div className="absolute inset-0 -z-10">
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-        <OrbitControls 
-          enableZoom={false} 
-          enablePan={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
+    <div className="fixed inset-0 -z-10">
+      <Canvas
+        dpr={[1, 1.5]}
+        gl={{ antialias: true, alpha: true }}
+        style={{ background: 'transparent' }}
+      >
+        <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={50} />
         
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, -10, -5]} intensity={0.5} color="#8b5cf6" />
+        <ambientLight intensity={0.15} />
+        <directionalLight position={[5, 5, 5]} intensity={0.4} color="#a78bfa" />
+        <pointLight position={[-5, -3, -5]} intensity={0.3} color="#06b6d4" />
+        <pointLight position={[3, -5, 2]} intensity={0.15} color="#f59e0b" />
         
         <Suspense fallback={null}>
-          <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
-            <FloatingGeometry />
-          </Float>
+          <FloatingGeometry />
         </Suspense>
       </Canvas>
     </div>
