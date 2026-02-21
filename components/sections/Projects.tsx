@@ -4,6 +4,13 @@ import { motion } from 'framer-motion';
 import { SectionHeading } from '../ui/SectionHeading';
 
 const projects = [
+    {
+    title: 'Chatbot IA Asmodee',
+    description: 'Chatbot intelligent pour les employés d\'Asmodee (+800 utilisateurs). Backend Python (FastAPI), tests unitaires (Pytest, Tox, GitHub Actions), frontend Vue 3 & Tailwind.',
+    tags: ['Python', 'FastAPI', 'Vue.js', 'Tailwind', 'CI/CD'],
+    github: '#',
+    featured: false,
+  },
   {
     title: 'EcoMuni AI',
     description: 'SaaS d\'optimisation énergétique pour municipalités françaises. Dashboard interactif, détection d\'anomalies par IA, assistant conversationnel (Google Gemini), rapports PDF, suivi Décret Tertiaire et simulations avant/après travaux.',
@@ -41,15 +48,8 @@ const projects = [
   },
   {
     title: 'E-PLACE',
-    description: 'Frontend JavaScript reproduisant l\'expérience collaborative Reddit r/place. Interaction en temps réel sur une grille partagée avec authentification par token.',
+    description: 'Frontend JavaScript reproduisant l\'expérience collaborative de Reddit r/place. Interaction en temps réel sur une grille partagée avec authentification par token.',
     tags: ['JavaScript', 'WebSocket', 'Canvas', 'Auth'],
-    github: '#',
-    featured: false,
-  },
-  {
-    title: 'Chatbot Asmodee',
-    description: 'Chatbot intelligent pour les employés d\'Asmodee (+800 utilisateurs). Backend Python (FastAPI), tests unitaires (Pytest, Tox, GitHub Actions), frontend Vue 3 & Tailwind.',
-    tags: ['Python', 'FastAPI', 'Vue.js', 'Tailwind', 'CI/CD'],
     github: '#',
     featured: false,
   },

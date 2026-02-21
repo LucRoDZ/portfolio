@@ -7,7 +7,7 @@ const stats = [
   { value: '21', label: 'Ans' },
   { value: 'EPITA', label: 'Cycle Ingénieur (2024-2027)' },
   { value: 'Projets', label: '+10 Projets réalisés' },
-  { value: 'Freelancer', label: '2025-présent' },
+  { value: 'Freelance', label: '2025-présent' },
 ];
 
 export function About() {
