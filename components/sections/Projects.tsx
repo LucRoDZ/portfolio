@@ -6,20 +6,20 @@ import { SectionHeading } from '../ui/SectionHeading';
 const projects = [    {
     title: 'Chatbot IA Asmodee',
     description: 'Chatbot intelligent pour les employés d\'Asmodee (+800 utilisateurs). Backend Python (FastAPI), tests unitaires (Pytest, Tox, GitHub Actions), frontend Vue 3 & Tailwind.',
-    tags: ['Python', 'FastAPI', 'Vue.js', 'Tailwind', 'CI/CD'],
+    tags: ['Python', 'FastAPI', 'Vue.js', 'Tailwind', 'CI/CD', 'Docker'],
     github: '#',
     featured: false,
   },
   {
     title: 'EcoMuni',
     description: 'SaaS d\'optimisation énergétique pour municipalités françaises. Dashboard interactif, détection d\'anomalies par IA, assistant conversationnel (Google Gemini), rapports PDF, suivi Décret Tertiaire et simulations avant/après travaux.',
-    tags: ['Python', 'FastAPI', 'React', 'Vite', 'Gemini AI'],
+    tags: ['Python', 'FastAPI', 'React', 'Vite', 'Docker'],
     github: 'https://github.com/LucRoDZ/EcoMuni',
     featured: false,
   },
   {
     title: 'NYOS ARP',
-    description: 'Plateforme full-stack d\'intelligence qualité pharmaceutique pour l\'Annual Product Review (APR). Dashboard analytique avancé avec Streamlit, génération de données synthétiques, et assistant IA (Google Gemini) pour analyser les données de fabrication, détecter les tendances et générer des rapports.',
+    description: 'Plateforme intelligente pour la qualité pharmaceutique. Aide à la rédaction pour l\'Annual Product Review (APR). Dashboard analytique avancé créer avec Streamlit, génération de données synthétiques, et assistant IA (Google Gemini) pour analyser les données de fabrication, détecter les tendances et générer des rapports.',
     tags: ['Python', 'Streamlit', 'FastAPI', 'Gemini AI', 'SQLite', 'Pandas'],
     github: '#',
     featured: false,
