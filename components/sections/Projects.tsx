@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeading } from '../ui/SectionHeading';
+import { ProjectModal, type Project } from '../ui/ProjectModal';
 
-const projects = [    {
+const projects: Project[] = [
+  {
     title: 'Chatbot IA Asmodee',
     description: 'Chatbot intelligent pour les employés d\'Asmodee (+800 utilisateurs). Backend Python (FastAPI), tests unitaires (Pytest, Tox, GitHub Actions), frontend Vue 3 & Tailwind.',
     tags: ['Python', 'FastAPI', 'Vue.js', 'Tailwind', 'CI/CD', 'Docker'],
@@ -61,21 +64,32 @@ const projects = [    {
   },
 ];
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({
+  project,
+  index,
+  onClick,
+}: {
+  project: Project;
+  index: number;
+  onClick: () => void;
+}) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-      viewport={{ once: true, margin: "-50px" }}
-      className={`group relative glass rounded-2xl overflow-hidden hover:bg-white/[0.04] transition-all duration-500 ${
+      viewport={{ once: true, margin: '-50px' }}
+      onClick={onClick}
+      className={`group relative glass rounded-2xl overflow-hidden cursor-pointer hover:bg-white/[0.04] transition-all duration-500 ${
         project.featured ? 'md:col-span-2' : ''
       }`}
     >
       {/* Gradient border hover effect */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-           style={{ background: 'linear-gradient(135deg, rgba(167,139,250,0.1), rgba(6,182,212,0.1))' }} />
-      
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+        style={{ background: 'linear-gradient(135deg, rgba(167,139,250,0.1), rgba(6,182,212,0.1))' }}
+      />
+
       <div className="p-8 md:p-10">
         {/* Project number */}
         <span className="text-xs font-mono text-text-tertiary mb-6 block tracking-wider">
@@ -88,7 +102,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         </h3>
 
         {/* Description */}
-        <p className="text-text-secondary leading-relaxed mb-8 max-w-lg">
+        <p className="text-text-secondary leading-relaxed mb-8 max-w-lg line-clamp-3">
           {project.description}
         </p>
 
@@ -103,12 +117,19 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             </span>
           ))}
         </div>
+
+        {/* "Voir plus" hint */}
+        <span className="text-xs font-mono text-text-tertiary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Voir plus →
+        </span>
       </div>
     </motion.article>
   );
 }
 
 export function Projects() {
+  const [selected, setSelected] = useState<Project | null>(null);
+
   return (
     <section id="projects" className="py-32 md:py-40 relative">
       <div className="section-divider" />
@@ -121,10 +142,17 @@ export function Projects() {
 
         <div className="grid md:grid-cols-2 gap-6 mt-16">
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={index}
+              onClick={() => setSelected(project)}
+            />
           ))}
         </div>
       </div>
+
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }
