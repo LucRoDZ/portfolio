@@ -44,9 +44,15 @@ const categories: Category[] = [
   {
     label: 'DevOps & Tools',
     techs: [
-      { name: 'Git',        icon: '/icons/git.svg',        color: '#f05032', level: 85 },
-      { name: 'Docker',     icon: '/icons/docker.svg',     color: '#2496ed', level: 65 },
-      { name: 'Linux',      icon: '/icons/linux.svg',      color: '#fcc624', level: 75 },
+      { name: 'Git',            icon: '/icons/git.svg',            color: '#f05032', level: 85 },
+      { name: 'Docker',         icon: '/icons/docker.svg',         color: '#2496ed', level: 65 },
+      { name: 'Kubernetes',     icon: '/icons/kubernetes.svg',     color: '#326CE5', level: 55 },
+      { name: 'GitHub Actions', icon: '/icons/github-actions.svg', color: '#2088FF', level: 60 },
+      { name: 'Power BI',       icon: '/icons/powerbi.svg',        color: '#F2C811', level: 60 },
+      { name: 'Prometheus',     icon: '/icons/prometheus.svg',     color: '#E6522C', level: 55 },
+      { name: 'Grafana',        icon: '/icons/grafana.svg',        color: '#F46800', level: 55 },
+      { name: 'Loki',           icon: '/icons/loki.svg',           color: '#F9B730', level: 50 },
+      { name: 'Linux',          icon: '/icons/linux.svg',          color: '#fcc624', level: 75 },
     ],
   },
 ];
