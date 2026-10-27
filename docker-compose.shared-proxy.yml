@@ -1,0 +1,23 @@
+# Shared-proxy mode (PROXY_MODE=shared-proxy): no Caddy. The app also joins the existing proxy's
+# Docker network, where it is reachable as http://lucaszivan-portfolio-app:3000.
+# See deploy/nginx/lucaszivan.app.conf for the matching nginx server blocks.
+services:
+  app:
+    networks:
+      internal: {}
+      shared-proxy:
+        aliases:
+          - lucaszivan-portfolio-app
+    labels:
+      # For Traefik users; ignored by nginx.
+      traefik.enable: "true"
+      traefik.docker.network: ${SHARED_PROXY_NETWORK:?set SHARED_PROXY_NETWORK in .env}
+      traefik.http.routers.lucaszivan.rule: Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)
+      traefik.http.routers.lucaszivan.entrypoints: websecure
+      traefik.http.routers.lucaszivan.tls.certresolver: ${TRAEFIK_CERTRESOLVER:-letsencrypt}
+      traefik.http.services.lucaszivan.loadbalancer.server.port: "3000"
+
+networks:
+  shared-proxy:
+    external: true
+    name: ${SHARED_PROXY_NETWORK:?set SHARED_PROXY_NETWORK in .env}

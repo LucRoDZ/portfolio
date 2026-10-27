@@ -1,0 +1,150 @@
+# Production stack, driven by ./deploy.sh (do not run `docker compose` on it by hand without -p and --env-file).
+# Everything here is scoped to the compose project "${COMPOSE_PROJECT_NAME}" and the label below,
+# so nothing touches other stacks on the server (EASY.Q, …).
+name: lucaszivan-portfolio
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-hardening: &hardening
+  read_only: true
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+
+services:
+  app:
+    # deploy.sh builds lucaszivan-portfolio:<git sha> and points the "live" tag at the deployed one.
+    image: ${IMAGE_NAME:-lucaszivan-portfolio}:live
+    <<: *hardening
+    restart: unless-stopped
+    tmpfs:
+      - /tmp
+      - /app/.next/cache:uid=1000,gid=1000
+    environment:
+      # Runtime-only settings. Build-time NEXT_PUBLIC_* values are baked in by deploy.sh.
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+    healthcheck:
+      test: ["CMD", "wget", "-qO", "/dev/null", "http://127.0.0.1:3000/api/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+      start_interval: 1s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 384M
+    logging: *logging
+    labels:
+      app.lucaszivan.project: lucaszivan-portfolio
+    networks:
+      - internal
+
+  # Standalone mode only: terminates HTTPS with automatic Let's Encrypt certificates.
+  caddy:
+    image: caddy:2.11.7-alpine
+    profiles: ["standalone"]
+    <<: *hardening
+    cap_add:
+      - NET_BIND_SERVICE
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+      - "${HTTPS_PORT:-443}:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+      ANALYTICS_DOMAIN: ${ANALYTICS_DOMAIN:-}
+    tmpfs:
+      - /tmp
+    volumes:
+      # Directories, not single files: git replaces files on pull, which would detach a file bind mount.
+      - ./deploy/caddy:/etc/caddy:ro
+      - ./.deploy/caddy-sites:/etc/caddy/sites-enabled:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 128M
+    logging: *logging
+    labels:
+      app.lucaszivan.project: lucaszivan-portfolio
+    networks:
+      - internal
+
+  # Optional self-hosted, cookieless analytics (ANALYTICS_SELF_HOSTED=true). Off by default.
+  umami:
+    image: ghcr.io/umami-software/umami:3.4.1
+    profiles: ["analytics"]
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD:-}@umami-db:5432/umami
+      APP_SECRET: ${UMAMI_APP_SECRET:-}
+      DISABLE_TELEMETRY: "1"
+    depends_on:
+      umami-db:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 384M
+    logging: *logging
+    labels:
+      app.lucaszivan.project: lucaszivan-portfolio
+    networks:
+      - internal
+
+  umami-db:
+    image: postgres:16.13-alpine
+    profiles: ["analytics"]
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD:-}
+    volumes:
+      - umami_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami -d umami"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+    logging: *logging
+    labels:
+      app.lucaszivan.project: lucaszivan-portfolio
+    networks:
+      - internal
+
+networks:
+  internal:
+    labels:
+      app.lucaszivan.project: lucaszivan-portfolio
+
+volumes:
+  caddy_data:
+  caddy_config:
+  umami_db:

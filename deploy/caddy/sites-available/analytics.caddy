@@ -1,0 +1,6 @@
+# Enabled by deploy.sh when ANALYTICS_SELF_HOSTED=true (standalone mode).
+{$ANALYTICS_DOMAIN} {
+	encode zstd gzip
+	header -Server
+	reverse_proxy umami:3000
+}

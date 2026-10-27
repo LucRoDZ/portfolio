@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# deploy.sh state (lock, deployed SHA history, generated Caddy sites)
+/.deploy/
