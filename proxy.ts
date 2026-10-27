@@ -15,6 +15,6 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Skip Next internals and any path with a file extension (icons, PDFs, sitemap.xml, robots.txt…).
-  matcher: ['/((?!_next|apple-icon|.*\\..*).*)'],
+  // Skip Next internals, /api and any path with a file extension (icons, PDFs, sitemap.xml, robots.txt…).
+  matcher: ['/((?!_next|api/|apple-icon|.*\\..*).*)'],
 };
