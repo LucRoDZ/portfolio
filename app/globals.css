@@ -1,137 +1,110 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import './tokens.css';
 
-:root {
-  --background: #050505;
-  --foreground: #e8e8e8;
-  --primary: #a78bfa;
-  --primary-dark: #7c3aed;
-  --accent: #06b6d4;
-  --accent-warm: #f59e0b;
-  --muted: #111111;
-  --muted-light: #1a1a1a;
-  --border: #222222;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.06);
-  --gradient-1: #a78bfa;
-  --gradient-2: #06b6d4;
-  --gradient-3: #f59e0b;
-  --text-secondary: #888888;
-  --text-tertiary: #555555;
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  --color-accent: var(--accent);
-  --color-accent-warm: var(--accent-warm);
-  --color-muted: var(--muted);
-  --color-muted-light: var(--muted-light);
-  --color-border: var(--border);
-  --color-glass: var(--glass);
-  --color-glass-border: var(--glass-border);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary: var(--text-tertiary);
-  --font-sans: var(--font-space-grotesk);
-  --font-mono: var(--font-geist-mono);
-}
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    -webkit-font-smoothing: antialiased;
+  }
 
-html {
-  scroll-behavior: auto;
-  overflow-x: hidden;
-}
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  :focus-visible {
+    outline: var(--focus-ring) solid var(--accent);
+    outline-offset: var(--focus-ring);
+    border-radius: var(--radius-sm);
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--spacing) * 20);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
-/* Selection */
-::selection {
-  background: rgba(167, 139, 250, 0.3);
-  color: #ffffff;
+/* Layout and component utilities, built only from tokens. */
+
+/* 12-column grid on a single content width. */
+@utility page-grid {
+  @apply mx-auto grid w-full max-w-content grid-cols-4 gap-x-4 px-4 md:grid-cols-12 md:gap-x-6 md:px-6;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+/* Narrow label column / wide content column. */
+@utility col-label {
+  @apply col-span-4 md:col-span-3;
 }
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-tertiary);
+@utility col-body {
+  @apply col-span-4 md:col-span-9;
 }
 
-/* Glassmorphism utility */
-.glass {
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+@utility meta {
+  @apply font-mono text-meta text-muted;
 }
 
-/* Premium gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@utility link {
+  @apply underline decoration-rule underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
 }
 
-.gradient-text-subtle {
-  background: linear-gradient(135deg, var(--foreground) 0%, var(--text-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@utility btn {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border px-5 font-strong transition-colors;
+}
+@utility btn-primary {
+  @apply btn border-accent bg-accent text-on-accent hover:border-fg hover:bg-fg hover:text-bg;
+}
+@utility btn-secondary {
+  @apply btn border-fg text-fg hover:border-accent hover:text-accent;
 }
 
-/* Glow effects */
-.glow-sm {
-  box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);
-}
-.glow-md {
-  box-shadow: 0 0 40px rgba(167, 139, 250, 0.2);
-}
-.glow-text {
-  text-shadow: 0 0 40px rgba(167, 139, 250, 0.5);
+@utility tag {
+  @apply inline-flex items-center rounded-sm border border-rule px-2 py-0.5 font-mono text-meta text-muted;
 }
 
-/* Noise texture overlay */
-.noise::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0.03;
-  z-index: 9999;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px;
+/* Unfilled TODO(lucas) copy, visible in development only. */
+@utility todo {
+  @apply outline-1 outline-offset-2 outline-accent outline-dashed;
 }
 
-/* Grid background */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
+/* Theme toggle label: show the name of the active theme. */
+.when-dark {
+  display: none;
 }
-
-/* Section divider */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%);
+:root[data-theme='dark'] .when-dark {
+  display: inline;
+}
+:root[data-theme='dark'] .when-light {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .when-dark {
+    display: inline;
+  }
+  :root:not([data-theme='light']) .when-light {
+    display: none;
+  }
 }

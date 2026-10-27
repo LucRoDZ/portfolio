@@ -1,0 +1,123 @@
+/*
+ * Design tokens — the only place raw colours, sizes and radii are defined.
+ * Contrast (WCAG, `npm run check:contrast`), all AA on bg and surface:
+ *   light  fg 16.3 · muted 6.9 · faint 5.4 · accent 5.2 on bg
+ *   dark   fg 15.7 · muted 7.6 · faint 5.3 · accent 6.9 on bg
+ */
+:root {
+  --bg: #f5f4ef;
+  --surface: #ecebe4;
+  --fg: #171715;
+  --muted: #55544e;
+  --faint: #65645d;
+  --rule: #d6d4cb;
+  --rule-strong: #171715;
+  --accent: #b4400b;
+  --on-accent: #ffffff;
+  --focus-ring: 2px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #121211;
+    --surface: #1a1a18;
+    --fg: #ecebe5;
+    --muted: #a6a59c;
+    --faint: #8a8981;
+    --rule: #2c2c29;
+    --rule-strong: #ecebe5;
+    --accent: #f27b3a;
+    --on-accent: #121211;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #121211;
+  --surface: #1a1a18;
+  --fg: #ecebe5;
+  --muted: #a6a59c;
+  --faint: #8a8981;
+  --rule: #2c2c29;
+  --rule-strong: #ecebe5;
+  --accent: #f27b3a;
+  --on-accent: #121211;
+  color-scheme: dark;
+}
+
+@theme {
+  /* Colour: neutrals + one accent. Tailwind's default palette is removed. */
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+
+  /* Type: Schibsted Grotesk (text) + IBM Plex Mono (metadata). Modular scale 1.25, fixed line-heights. */
+  --font-*: initial;
+  --font-sans: var(--font-text), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-meta), ui-monospace, monospace;
+
+  --text-*: initial;
+  --text-meta: 0.8rem;
+  --text-meta--line-height: 1.5;
+  --text-meta--letter-spacing: 0.01em;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.5;
+  --text-h4: 1.563rem;
+  --text-h4--line-height: 1.25;
+  --text-h4--letter-spacing: -0.015em;
+  --text-h3: 1.953rem;
+  --text-h3--line-height: 1.15;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h2: 2.441rem;
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h1: 3.052rem;
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.03em;
+  --text-display: 3.815rem;
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.035em;
+
+  --font-weight-*: initial;
+  --font-weight-regular: 400;
+  --font-weight-strong: 600;
+
+  /* Shape: one small radius, hairlines instead of shadows. */
+  --radius-*: initial;
+  --radius-sm: 4px;
+  --shadow-*: initial;
+
+  /* Layout: 4px spacing base (Tailwind default), one content width, one prose width. */
+  --spacing: 0.25rem;
+  --container-*: initial;
+  --container-content: 72.5rem;
+  --container-prose: 40rem;
+  --container-diagram: 36rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --default-transition-duration: 160ms;
+  --default-transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-rise: rise 240ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
