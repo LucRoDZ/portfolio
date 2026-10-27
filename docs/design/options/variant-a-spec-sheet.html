@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Option A — Spec sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;600&display=swap">
+<link rel="stylesheet" href="_shared.css">
+<style>
+header{border-bottom:1px solid var(--rule);padding:16px 0}
+.hero{padding:96px 0 64px}.hero .label{grid-column:span 3}.hero .body{grid-column:span 9}
+h1{font-size:3.815rem;line-height:1.05;letter-spacing:-.03em;font-weight:600;max-width:16ch}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:1.25rem;line-height:1.5;color:var(--muted);max-width:52ch;margin-top:24px}
+.avail{margin-top:24px;border-top:1px solid var(--rule);padding-top:12px}
+.ctas{display:flex;gap:12px;margin-top:32px}
+.metrics{border-top:1px solid var(--fg);margin-top:64px}.metrics>div{grid-column:span 4;padding:24px 0;border-right:1px solid var(--rule)}
+.metrics>div:last-child{border-right:0}.num{font-size:3.052rem;line-height:1;letter-spacing:-.03em;font-weight:600;font-variant-numeric:tabular-nums}
+.row{border-top:1px solid var(--rule);padding:24px 0;align-items:baseline}.row:hover h3{color:var(--accent)}
+.row .n{grid-column:span 1}.row h3{grid-column:span 4;font-size:1.563rem;letter-spacing:-.02em}.row p{grid-column:span 4;color:var(--muted)}.row .out{grid-column:span 3;text-align:right}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.hero .label,.hero .body,.metrics>div,.row>*{grid-column:auto}h1{font-size:2.441rem}.metrics>div{border-right:0;border-bottom:1px solid var(--rule)}.row .out{text-align:left}}
+</style>
+<header><div class="wrap grid"><b style="grid-column:span 6">LZ</b><span class="mono" style="grid-column:span 6;text-align:right">Paris · currently Tokyo</span></div></header>
+<section class="hero"><div class="wrap grid">
+  <div class="label mono">Lucas Zivan<br>Engineering student, EPITA</div>
+  <div class="body">
+    <h1>I ship <em>LLM features</em> to production — with the tests and CI to keep them there.</h1>
+    <p class="lead">Final-year engineering student. At Asmodee I built parts of an internal multi-LLM platform used by 800+ employees.</p>
+    <p class="avail mono">Available Feb/Mar 2027 · 5–6 month internship · AI / Backend / DevOps · Paris</p>
+    <div class="ctas"><a class="btn primary" href="#">Email me</a><a class="btn" href="#">Download CV</a></div>
+  </div>
+  <div class="wrap grid metrics" style="grid-column:1/-1;padding:0">
+    <div><div class="num">13% → 4%</div><p class="mono">error rate, LLM file generation</p></div>
+    <div><div class="num">0 → 88%</div><p class="mono">backend test coverage</p></div>
+    <div><div class="num">800+</div><p class="mono">employees on the platform</p></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="grid row"><span class="n mono">01</span><h3>Asmodee AI platform</h3><p>LLM file generation, OCR, translation and voice input behind one FastAPI backend.</p><span class="out mono">13% → 4% errors</span></div>
+</div></section>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Option B — Masthead</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;600&display=swap">
+<link rel="stylesheet" href="_shared.css">
+<style>
+.mast{padding:48px 0 24px;border-bottom:4px solid var(--fg)}
+.mast h1{font-size:clamp(3rem,13vw,9.3rem);line-height:.85;letter-spacing:-.05em;font-weight:600}
+.sub{padding:32px 0}.sub .l{grid-column:span 7}.sub .r{grid-column:span 5;border-left:1px solid var(--rule);padding-left:24px}
+.sub h2{font-size:1.953rem;line-height:1.2;letter-spacing:-.02em;font-weight:600}
+.stat{display:flex;justify-content:space-between;border-bottom:1px solid var(--rule);padding:12px 0}.stat b{font-size:1.563rem}
+.ctas{display:flex;gap:12px;margin-top:24px}
+.card{margin-top:48px;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.card .img{aspect-ratio:16/7;background:var(--surface);display:grid;place-items:center}
+.card .meta{padding:24px;display:flex;justify-content:space-between;gap:24px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.sub .l,.sub .r{grid-column:auto}.sub .r{border-left:0;padding-left:0}.card .meta{flex-direction:column}}
+</style>
+<div class="wrap">
+  <div class="mast"><p class="mono">Portfolio — 2026/27 edition</p><h1>Lucas Zivan</h1></div>
+  <div class="grid sub">
+    <div class="l"><h2>AI integration, DevOps and SaaS delivery. Looking for a 5–6 month internship from Feb/Mar 2027.</h2>
+      <div class="ctas"><a class="btn primary" href="#">Email me</a><a class="btn" href="#">Download CV</a></div></div>
+    <div class="r">
+      <div class="stat"><span class="mono">LLM error rate</span><b>13% → 4%</b></div>
+      <div class="stat"><span class="mono">Test coverage</span><b>0 → 88%</b></div>
+      <div class="stat"><span class="mono">Internal users</span><b>800+</b></div>
+    </div>
+  </div>
+  <article class="card"><div class="img mono">[ architecture diagram / screenshot ]</div>
+    <div class="meta"><div><h3>Asmodee AI platform</h3><p class="mono">FastAPI · LangChain · Vue 3</p></div><p>13% → 4% error rate after benchmarking 3 models.</p></div></article>
+</div>
+</html>
