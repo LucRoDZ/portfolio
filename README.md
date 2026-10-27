@@ -1,96 +1,38 @@
-# Portfolio Lucas ZIVAN
+# Portfolio — Lucas Zivan
 
-Portfolio personnel moderne avec des animations 3D interactives.
+Source of [lucaszivan.app](https://lucaszivan.app). Next.js 16 (App Router, fully static), Tailwind CSS v4, TypeScript. No client-side animation or 3D libraries.
 
-## 🚀 Stack Technique
-
-- **Framework**: Next.js 16 (App Router)
-- **Langage**: TypeScript
-- **3D**: Three.js, React Three Fiber, @react-three/drei
-- **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion
-- **Hébergement**: Vercel
-
-## 📦 Installation
+## Scripts
 
 ```bash
-# Installer les dépendances
-npm install
-
-# Lancer le serveur de développement
-npm run dev
+npm run dev             # http://localhost:3000 (redirects to /en or /fr)
+npm run build           # production build
+npm start               # serve the build
+npm test                # unit tests (Vitest)
+npm run lint
+npm run check:links     # crawl a running build; set BASE_URL (default http://localhost:3000)
+npm run check:contrast  # WCAG contrast of the colour tokens
 ```
 
-Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+Copy `.env.example` to `.env.local` for the optional settings (site URL, booking link, analytics).
 
-## 🏗️ Structure du Projet
+## Where things live
 
-```
-portfolio/
-├── app/                    # App Router Next.js
-│   ├── layout.tsx         # Layout principal
-│   ├── page.tsx           # Page d'accueil
-│   └── globals.css        # Styles globaux
-├── components/
-│   ├── 3d/               # Composants 3D
-│   │   ├── Scene3D.tsx
-│   │   └── FloatingGeometry.tsx
-│   ├── sections/         # Sections de la page
-│   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Projects.tsx
-│   │   └── Contact.tsx
-│   └── ui/               # Composants UI
-│       └── Navbar.tsx
-└── public/               # Assets statiques
-```
+| Path | What |
+|---|---|
+| `content/dictionaries/{en,fr}.ts` | Every UI string. `fr.ts` is typed against `en.ts`, so a missing key fails the build. |
+| `content/projects.ts` | Case studies and the "More projects" list, with the source of each fact. |
+| `content/experience.ts`, `content/skills.ts`, `content/site.ts` | Timeline, skill tiers, e-mail / links / CV paths. |
+| `app/tokens.css` | Design tokens: colours (light + dark), type scale, radius, widths. The only place raw values live (plus `lib/brand.ts` for OG images). |
+| `app/[locale]/` | Routes: home, `projects/[slug]`, OG images, 404. |
+| `proxy.ts` | Redirects locale-less URLs using `Accept-Language`, EN fallback. |
+| `lib/` | i18n, SEO/JSON-LD, analytics, diagram layout, TODO handling — all unit-tested in `tests/`. |
+| `docs/` | Design audit, before/after screenshots, copy options. |
 
-## 🎨 Personnalisation
+## Placeholders
 
-### Couleurs
-
-Modifiez les couleurs dans `app/globals.css` :
-
-```css
-:root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --primary: #3b82f6;
-  --accent: #8b5cf6;
-}
-```
-
-### Contenu
-
-1. **Informations personnelles**: Éditez `components/sections/Hero.tsx`
-2. **Compétences**: Modifiez le tableau `skills` dans `components/sections/About.tsx`
-3. **Projets**: Mettez à jour le tableau `projects` dans `components/sections/Projects.tsx`
-4. **Contact**: Changez les liens dans `components/sections/Contact.tsx`
-
-## 🌐 Déploiement sur Vercel
-
-1. Push votre code sur GitHub
-2. Connectez votre repo à Vercel
-3. Vercel détectera automatiquement Next.js et déploiera
-
-## 📝 Scripts
+Unknown facts are written as `TODO(lucas): …`. They are outlined in development and left out of production builds, and `check:links` fails if one reaches the HTML. Find them with:
 
 ```bash
-npm run dev      # Développement
-npm run build    # Build de production
-npm run start    # Lancer la production
-npm run lint     # Vérifier le code
+grep -rn "TODO(lucas)" content
 ```
-
-## 🎯 Features
-
-- ✨ Scène 3D interactive avec Three.js
-- 🎨 Design moderne et responsive
-- 🌙 Mode sombre par défaut
-- ⚡ Performance optimisée
-- 🔍 SEO-friendly
-- 📱 Mobile-first
-
-## 📄 License
-
-MIT © Lucas ZIVAN
