@@ -41,7 +41,7 @@ grep -rn "TODO(lucas)" content
 
 ## Deployment
 
-Self-hosted on the OVH server. No CI/CD, no registry: the server builds the image from `origin/main` itself.
+Self-hosted on the OVH server. No CI/CD, no registry: the server builds the image from `origin/master` (`DEPLOY_BRANCH`) itself.
 
 ```mermaid
 flowchart LR

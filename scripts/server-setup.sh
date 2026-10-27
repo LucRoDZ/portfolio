@@ -9,7 +9,7 @@ set -Eeuo pipefail
 DEPLOY_USER=${DEPLOY_USER:-deploy}
 DEPLOY_PATH=${DEPLOY_PATH:-/srv/lucaszivan-portfolio}
 REPO_SLUG=${REPO_SLUG:-LucRoDZ/portfolio}
-DEPLOY_BRANCH=${DEPLOY_BRANCH:-main}
+DEPLOY_BRANCH=${DEPLOY_BRANCH:-master}
 KEY_NAME=lucaszivan_portfolio_deploy
 SSH_HOST_ALIAS=github-lucaszivan-portfolio
 

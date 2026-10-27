@@ -70,7 +70,7 @@ load_env() {
 
   : "${DOMAIN:?DOMAIN is required in .env}"
   PROXY_MODE=${PROXY_MODE:-standalone}
-  BRANCH=${DEPLOY_BRANCH:-main}
+  BRANCH=${DEPLOY_BRANCH:-master}
   PROJECT=${COMPOSE_PROJECT_NAME:-lucaszivan-portfolio}
   IMAGE=${IMAGE_NAME:-$PROJECT}
   export IMAGE_NAME=$IMAGE # docker-compose.prod.yml reads it for the app's image
