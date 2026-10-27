@@ -1,0 +1,22 @@
+# Only what `next build` needs goes into the build context.
+node_modules
+.next
+.git
+.gitignore
+.github
+.claude
+.deploy
+.env*
+docs
+tests
+scripts
+deploy
+coverage
+*.md
+*.log
+*.tsbuildinfo
+Dockerfile
+.dockerignore
+docker-compose*.yml
+deploy.sh
+vitest.config.mts
