@@ -43,3 +43,6 @@ next-env.d.ts
 
 # deploy.sh state (lock, deployed SHA history, generated Caddy sites)
 /.deploy/
+
+# private source material (screenshots, reports, videos) — only curated excerpts go to public/
+/Rapport Lucas ZIVAN/
