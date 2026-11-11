@@ -32,10 +32,10 @@ export function Diagram({
     >
       <defs>
         <marker id={marker} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M0 0 L8 4 L0 8 z" className="fill-muted" />
+          <path d="M0 0 L8 4 L0 8 z" className="fill-accent" />
         </marker>
       </defs>
-      <g className="fill-none stroke-muted" strokeWidth={compact ? 2 : 1.25}>
+      <g className="fill-none stroke-rule-strong" strokeWidth={compact ? 2 : 1.5}>
         {paths.map((p) => (
           <path key={p.key} d={p.d} markerEnd={`url(#${marker})`} />
         ))}
@@ -47,23 +47,23 @@ export function Diagram({
             y={n.y}
             width={nodeW}
             height={nodeH}
-            rx={4}
-            className="fill-bg stroke-fg"
-            strokeWidth={compact ? 2 : 1}
+            rx={10}
+            className="fill-surface stroke-rule-strong"
+            strokeWidth={compact ? 2 : 1.25}
           />
           {compact || !n.sub ? (
             <text
               x={n.x + 14}
               y={n.y + nodeH / 2}
               dominantBaseline="central"
-              className="fill-fg font-sans font-strong"
+              className="fill-fg font-sans font-medium"
               fontSize={compact ? 20 : 15}
             >
               {n.label}
             </text>
           ) : (
             <>
-              <text x={n.x + 14} y={n.y + 23} className="fill-fg font-sans font-strong" fontSize={15}>
+              <text x={n.x + 14} y={n.y + 23} className="fill-fg font-sans font-medium" fontSize={15}>
                 {n.label}
               </text>
               <text x={n.x + 14} y={n.y + 42} className="fill-muted font-mono" fontSize={12}>

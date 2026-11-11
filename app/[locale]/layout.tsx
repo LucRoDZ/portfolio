@@ -1,27 +1,24 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Mono, Schibsted_Grotesk } from 'next/font/google';
+import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { Analytics } from '@/components/Analytics';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
-import { themeInitScript } from '@/components/ThemeToggle';
 import { site } from '@/content/site';
 import { brand } from '@/lib/brand';
 import { getDictionary, isLocale, locales } from '@/lib/i18n';
 import '../globals.css';
 
-const text = Schibsted_Grotesk({ subsets: ['latin'], weight: ['400', '600'], variable: '--font-text', display: 'swap' });
-const meta = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400'], variable: '--font-meta', display: 'swap' });
+const text = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['400', '500', '700', '800'], variable: '--font-text', display: 'swap' });
+const meta = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-meta', display: 'swap' });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: brand.light.bg },
-    { media: '(prefers-color-scheme: dark)', color: brand.dark.bg },
-  ],
+  themeColor: brand.bg,
+  colorScheme: 'light',
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -56,10 +53,7 @@ export default async function LocaleLayout({
   const dict = getDictionary(locale);
 
   return (
-    <html lang={locale} className={`${text.variable} ${meta.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
+    <html lang={locale} className={`${text.variable} ${meta.variable}`}>
       <body>
         <SiteHeader locale={locale} dict={dict} />
         {children}

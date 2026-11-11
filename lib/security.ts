@@ -27,7 +27,7 @@ export function contentSecurityPolicy(env: Env): string {
   return [
     "default-src 'self'",
     // 'unsafe-inline' is required by the inline scripts Next.js emits in statically generated pages
-    // (RSC payload, theme init). Nonces would force every page to render dynamically.
+    // (RSC payload, JSON-LD). Nonces would force every page to render dynamically.
     `script-src 'self' 'unsafe-inline'${extra}`,
     `connect-src 'self'${extra}`,
     "style-src 'self' 'unsafe-inline'",

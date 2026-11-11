@@ -5,6 +5,7 @@
   html {
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    background: var(--bg);
   }
 
   body {
@@ -27,8 +28,9 @@
     border-radius: var(--radius-sm);
   }
 
+  /* Leaves room for the sticky header when jumping to a section. */
   [id] {
-    scroll-margin-top: calc(var(--spacing) * 20);
+    scroll-margin-top: calc(var(--spacing) * 24);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -50,17 +52,21 @@
 
 /* Layout and component utilities, built only from tokens. */
 
-/* 12-column grid on a single content width. */
-@utility page-grid {
-  @apply mx-auto grid w-full max-w-content grid-cols-4 gap-x-4 px-4 md:grid-cols-12 md:gap-x-6 md:px-6;
+@utility page {
+  @apply mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8;
 }
 
-/* Narrow label column / wide content column. */
-@utility col-label {
-  @apply col-span-4 md:col-span-3;
+@utility section {
+  @apply py-20 md:py-28;
 }
-@utility col-body {
-  @apply col-span-4 md:col-span-9;
+
+@utility card {
+  @apply rounded-lg border border-rule bg-surface shadow-card;
+}
+
+/* Small uppercase mono label above headings. */
+@utility eyebrow {
+  @apply font-mono text-micro font-medium uppercase text-accent;
 }
 
 @utility meta {
@@ -68,43 +74,27 @@
 }
 
 @utility link {
-  @apply underline decoration-rule underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+  @apply underline decoration-rule-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
 }
 
 @utility btn {
-  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border px-5 font-strong transition-colors;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border px-5 text-meta font-strong transition;
 }
 @utility btn-primary {
-  @apply btn border-accent bg-accent text-on-accent hover:border-fg hover:bg-fg hover:text-bg;
+  @apply btn border-accent bg-accent text-on-accent shadow-card hover:-translate-y-px hover:shadow-lift;
 }
 @utility btn-secondary {
-  @apply btn border-fg text-fg hover:border-accent hover:text-accent;
+  @apply btn border-rule-strong bg-surface text-fg hover:border-fg;
+}
+@utility btn-ghost {
+  @apply btn border-transparent text-fg hover:text-accent;
 }
 
-@utility tag {
-  @apply inline-flex items-center rounded-sm border border-rule px-2 py-0.5 font-mono text-meta text-muted;
+@utility pill {
+  @apply inline-flex items-center rounded-full bg-pill px-2.5 py-0.5 font-mono text-micro font-medium tracking-normal text-on-pill;
 }
 
 /* Unfilled TODO(lucas) copy, visible in development only. */
 @utility todo {
   @apply outline-1 outline-offset-2 outline-accent outline-dashed;
-}
-
-/* Theme toggle label: show the name of the active theme. */
-.when-dark {
-  display: none;
-}
-:root[data-theme='dark'] .when-dark {
-  display: inline;
-}
-:root[data-theme='dark'] .when-light {
-  display: none;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .when-dark {
-    display: inline;
-  }
-  :root:not([data-theme='light']) .when-light {
-    display: none;
-  }
 }

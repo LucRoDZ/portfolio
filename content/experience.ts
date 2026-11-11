@@ -2,10 +2,12 @@ import type { L, TimelineEntry } from './types';
 
 export const work: TimelineEntry[] = [
   {
+    start: '2025-12',
+    type: 'work',
     period: { en: 'Dec 2025 – now', fr: 'déc. 2025 – aujourd’hui' },
-    title: { en: 'Freelance developer', fr: 'Développeur freelance' },
+    title: { en: 'Freelance developer & consultant', fr: 'Développeur & consultant freelance' },
     org: 'Auto-entrepreneur',
-    place: { en: 'Paris', fr: 'Paris' },
+    place: { en: 'Paris · remote', fr: 'Paris · à distance' },
     bullets: [
       {
         en: 'Scope client needs into phased roadmaps (Jira, GitHub Projects) and UX mockups (Figma).',
@@ -20,17 +22,19 @@ export const work: TimelineEntry[] = [
         fr: 'Je mets en place Docker, la CI/CD et la documentation de passation pour que le client puisse exploiter ce que je livre.',
       },
     ],
-    stack: ['Python', 'FastAPI', 'React', 'Docker', 'CI/CD', 'Figma'],
+    stack: ['Python', 'FastAPI', 'React', 'Next.js', 'Docker', 'CI/CD', 'Figma'],
   },
   {
+    start: '2025-09',
+    type: 'work',
     period: { en: 'Sept 2025 – Jan 2026', fr: 'sept. 2025 – janv. 2026' },
     title: { en: 'Full-stack developer intern', fr: 'Stagiaire développeur full-stack' },
     org: 'Asmodee',
-    place: { en: 'Boulogne-Billancourt', fr: 'Boulogne-Billancourt' },
+    place: { en: 'Boulogne-Billancourt · AI & Data team', fr: 'Boulogne-Billancourt · équipe IA & Data' },
     bullets: [
       {
         en: 'Built an LLM-powered file generation service for a multi-LLM platform used by 800+ employees; benchmarked 3 models and cut the error rate from 13% to 4%.',
-        fr: 'Développement d’un service de génération de fichiers par LLM pour une plateforme multi-LLM utilisée par plus de 800 employés ; comparaison de 3 modèles, taux d’erreur ramené de 13 % à 4 %.',
+        fr: 'Développement d’un service de génération de fichiers par LLM pour une plateforme multi-LLM utilisée par plus de 800 employés ; comparaison de 3 modèles, taux d’erreur ramené de 13 % à 4 %.',
       },
       {
         en: 'Integrated Mistral OCR, DeepL and Whisper voice dictation into the FastAPI/LangChain backend.',
@@ -38,11 +42,11 @@ export const work: TimelineEntry[] = [
       },
       {
         en: 'Took backend test coverage from 0 to 88% (Pytest, Tox, GitHub Actions).',
-        fr: 'Couverture de tests backend portée de 0 à 88 % (Pytest, Tox, GitHub Actions).',
+        fr: 'Couverture de tests backend portée de 0 à 88 % (Pytest, Tox, GitHub Actions).',
       },
       {
-        en: 'Shipped a Projects feature and a full responsive and localisation overhaul (Vue 3, Pinia, Tailwind).',
-        fr: 'Livraison d’une fonctionnalité Projets et d’une refonte responsive et localisation complète (Vue 3, Pinia, Tailwind).',
+        en: 'Worked in two-week Scrum sprints with daily stand-ups and code review before every merge.',
+        fr: 'Travail en sprints Scrum de deux semaines, avec daily et revue de code avant chaque merge.',
       },
     ],
     stack: ['Python', 'FastAPI', 'LangChain', 'Pytest', 'GitHub Actions', 'Vue 3'],
@@ -51,25 +55,36 @@ export const work: TimelineEntry[] = [
 
 export const education: TimelineEntry[] = [
   {
+    start: '2026-09',
+    type: 'education',
     period: { en: 'Sept 2026 – Jan 2027', fr: 'sept. 2026 – janv. 2027' },
     title: { en: 'Exchange semester', fr: 'Semestre d’échange' },
     org: 'Shibaura Institute of Technology',
-    place: { en: 'Tokyo', fr: 'Tokyo' },
+    place: { en: 'Tokyo, Japan', fr: 'Tokyo, Japon' },
     bullets: [
       {
         en: 'Advanced Cognitive Ergonomics; Introduction to Affective Computing.',
-        fr: 'Advanced Cognitive Ergonomics ; Introduction to Affective Computing.',
+        fr: 'Advanced Cognitive Ergonomics ; Introduction to Affective Computing.',
       },
     ],
   },
   {
+    start: '2024-09',
+    type: 'education',
     period: { en: '2024 – 2027', fr: '2024 – 2027' },
-    title: { en: 'Engineering degree, final year', fr: 'Cycle ingénieur, dernière année' },
+    title: { en: 'Engineering degree · Global IT Management major', fr: 'Cycle ingénieur · majeure Global IT Management' },
     org: 'EPITA',
-    place: { en: 'Paris · Global IT Management major', fr: 'Paris · majeure Global IT Management' },
-    bullets: [],
+    place: { en: 'Paris', fr: 'Paris' },
+    bullets: [
+      {
+        en: 'Software engineering (C, C++, Java, microservices) and IT management: project management, business simulation, answering calls for tender.',
+        fr: 'Ingénierie logicielle (C, C++, Java, microservices) et management des SI : gestion de projet, simulation d’entreprise, réponse à appel d’offres.',
+      },
+    ],
   },
   {
+    start: '2022-09',
+    type: 'education',
     period: { en: '2022 – 2024', fr: '2022 – 2024' },
     title: { en: 'Preparatory classes (CPGE)', fr: 'Classes préparatoires (CPGE)' },
     org: 'Lycée Camille Guérin',
@@ -77,6 +92,11 @@ export const education: TimelineEntry[] = [
     bullets: [],
   },
 ];
+
+/** Work and education in one list, most recent start first. */
+export function timeline(entries: TimelineEntry[] = [...work, ...education]): TimelineEntry[] {
+  return [...entries].sort((a, b) => b.start.localeCompare(a.start));
+}
 
 export const earlier: L = {
   en: 'Software development intern at Serli (2019, a mobile app in JavaScript) · Production operator at Elis (summer 2024).',

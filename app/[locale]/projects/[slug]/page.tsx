@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { ArchitectureMap } from '@/components/ArchitectureMap';
 import { Copy } from '@/components/Copy';
 import { Diagram } from '@/components/Diagram';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Lock } from '@/components/icons';
 import { MetricValue } from '@/components/Metric';
+import { Shot } from '@/components/Shot';
 import { caseStudies, getCaseStudy } from '@/content/projects';
 import { format, getDictionary, isLocale, t } from '@/lib/i18n';
 import { alternates } from '@/lib/seo';
@@ -31,11 +34,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function Block({ title, children }: { title: string; children: React.ReactNode }) {
+function Block({ title, children, id }: { title: string; children: React.ReactNode; id: string }) {
   return (
-    <section className="border-t border-rule-strong pt-3">
-      <h2 className="meta text-fg">{title}</h2>
-      <div className="mt-4">{children}</div>
+    <section aria-labelledby={id}>
+      <h2 id={id} className="eyebrow flex items-center gap-3">
+        <span aria-hidden="true" className="h-px w-6 bg-accent" />
+        {title}
+      </h2>
+      <div className="mt-5">{children}</div>
     </section>
   );
 }
@@ -58,90 +64,100 @@ export default async function CaseStudyPage({ params }: Props) {
     { label: cs.role, value: t(project.role, locale) },
     { label: cs.team, value: t(project.team, locale) },
   ].filter((f) => present(f.value) !== null);
+  const desktopShots = project.shots.filter((s) => s.device !== 'mobile');
+  const phoneShots = project.shots.filter((s) => s.device === 'mobile');
 
   return (
     <main id="main">
       <article>
-        <header className="page-grid gap-y-6 pb-12 pt-10 md:pb-16 md:pt-16">
-          <nav aria-label={cs.breadcrumb} className="col-label meta">
-            <a href={`/${locale}#work`} className="link inline-flex min-h-11 items-center">
-              ← {cs.back}
-            </a>
-            <span className="mt-1 block">
-              {cs.breadcrumb} {String(index + 1).padStart(2, '0')}/{String(caseStudies.length).padStart(2, '0')}
-            </span>
-          </nav>
-          <div className="col-body">
-            <h1 className="text-h2 font-strong md:text-display">{project.title}</h1>
-            <p className="mt-4 max-w-prose text-lead text-muted">{t(project.pitch, locale)}</p>
+        <header className="relative overflow-hidden border-b border-rule">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--rule-strong)_1px,transparent_1px)] [background-size:22px_22px] opacity-50 [mask-image:radial-gradient(ellipse_60%_70%_at_80%_0%,black,transparent)]"
+          />
+          <div className="page relative pt-10 pb-14 md:pt-14 md:pb-20">
+            <nav aria-label={cs.breadcrumb} className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <a href={`/${locale}#projects`} className="btn-ghost -ml-5 text-muted">
+                <ArrowLeft />
+                {cs.back}
+              </a>
+              <span className="meta">
+                {cs.breadcrumb} {String(index + 1).padStart(2, '0')}/{String(caseStudies.length).padStart(2, '0')}
+              </span>
+            </nav>
+            <p className="eyebrow mt-8">{t(project.kind, locale)}</p>
+            <h1 className="mt-3 text-h1 font-strong md:text-display">{project.title}</h1>
+            <p className="mt-5 max-w-prose text-lead text-muted">{t(project.pitch, locale)}</p>
+
+            {project.metrics.length > 0 && (
+              <dl className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {project.metrics.map((m) => (
+                  <div key={m.value} className="card flex flex-col-reverse justify-end gap-2 p-5">
+                    <dt className="text-meta text-muted">{t(m.caption, locale)}</dt>
+                    <dd>
+                      <MetricValue value={m.value} to={dict.common.to} className="text-h3 whitespace-nowrap text-accent" />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
           </div>
-          {project.metrics.length > 0 && (
-            <dl className="col-body mt-6 grid border-t border-rule-strong md:col-start-4 md:grid-cols-3">
-              {project.metrics.map((m, i) => (
-                <div
-                  key={m.value}
-                  className={`flex flex-col-reverse gap-2 border-b border-rule py-6 md:border-b-0 md:pr-6 ${i > 0 ? 'md:border-l md:pl-6' : ''}`}
-                >
-                  <dt className="meta">{t(m.caption, locale)}</dt>
-                  <dd>
-                    <MetricValue value={m.value} to={dict.common.to} className="whitespace-nowrap text-h2 lg:text-h1" />
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          )}
         </header>
 
-        <div className="page-grid gap-y-12">
-          <aside className="col-label">
-            <dl className="space-y-4 border-t border-rule-strong pt-3 md:sticky md:top-8">
+        <div className="page grid gap-12 py-14 md:py-20 lg:grid-cols-12">
+          <aside className="min-w-0 lg:col-span-4">
+            <dl className="card space-y-5 p-6 lg:sticky lg:top-24">
               {facts.map((f) => (
                 <div key={f.label}>
-                  <dt className="meta">{f.label}</dt>
-                  <Copy text={f.value} as="dd" />
+                  <dt className="font-mono text-micro uppercase text-muted">{f.label}</dt>
+                  <Copy text={f.value} as="dd" className="mt-1 font-medium" />
                 </div>
               ))}
               <div>
-                <dt className="meta">{cs.stack}</dt>
-                <dd className="mt-2 flex flex-wrap gap-2">
+                <dt className="font-mono text-micro uppercase text-muted">{cs.stack}</dt>
+                <dd className="mt-2 flex flex-wrap gap-1.5">
                   {project.stack.map((s) => (
-                    <span key={s} className="tag">
+                    <span key={s} className="pill">
                       {s}
                     </span>
                   ))}
                 </dd>
               </div>
               <div>
-                <dt className="meta">{cs.links}</dt>
+                <dt className="font-mono text-micro uppercase text-muted">{cs.links}</dt>
                 {project.links.length > 0 ? (
                   project.links.map((l) => (
                     <dd key={l.href}>
-                      <a href={l.href} className="link inline-flex min-h-11 items-center" rel="noopener noreferrer">
-                        {cs.linkLabels[l.kind]} ↗
+                      <a href={l.href} className="link inline-flex min-h-11 items-center gap-1.5 font-medium" rel="noopener noreferrer">
+                        {cs.linkLabels[l.kind]}
+                        <ArrowUpRight className="size-3.5" />
                       </a>
                     </dd>
                   ))
                 ) : (
-                  <dd className="meta mt-1">{project.confidential ? cs.confidential : '—'}</dd>
+                  <dd className="mt-1 flex gap-2 text-meta text-muted">
+                    {project.confidential && <Lock className="mt-0.5 size-4 shrink-0" />}
+                    {project.confidential ? cs.confidential : '—'}
+                  </dd>
                 )}
               </div>
             </dl>
           </aside>
 
-          <div className="col-body space-y-16">
+          <div className="min-w-0 space-y-16 lg:col-span-8">
             {context && (
-              <Block title={cs.context}>
+              <Block title={cs.context} id="cs-context">
                 <Copy text={context} as="p" className="max-w-prose text-lead" />
               </Block>
             )}
 
             {decisions.length > 0 && (
-              <Block title={cs.decisions}>
-                <ol className="divide-y divide-rule">
+              <Block title={cs.decisions} id="cs-decisions">
+                <ol className="grid gap-4">
                   {decisions.map((d, i) => (
-                    <li key={d.title.en} className="grid gap-x-6 gap-y-2 py-5 first:pt-0 md:grid-cols-9">
-                      <span className="meta text-accent md:col-span-1">{String(i + 1).padStart(2, '0')}</span>
-                      <div className="md:col-span-8">
+                    <li key={d.title.en} className="card flex gap-5 p-6">
+                      <span className="font-mono text-meta font-medium text-accent">{String(i + 1).padStart(2, '0')}</span>
+                      <div>
                         <Copy text={t(d.title, locale)} as="h3" className="text-h4 font-strong" />
                         <Copy text={t(d.body, locale)} as="p" className="mt-2 max-w-prose text-muted" />
                       </div>
@@ -151,44 +167,76 @@ export default async function CaseStudyPage({ params }: Props) {
               </Block>
             )}
 
-            <Block title={cs.architecture}>
-              <figure>
-                <div className="overflow-x-auto rounded-sm border border-rule bg-surface p-4 md:p-8">
-                  <Diagram
-                    diagram={project.diagram}
-                    id={project.slug}
-                    label={t(project.diagram.title, locale)}
-                    className="h-auto w-full min-w-diagram"
-                  />
-                </div>
-                <figcaption className="meta mt-3">{t(project.diagram.title, locale)}</figcaption>
-              </figure>
+            <Block title={cs.architecture} id="cs-architecture">
+              <div className="card bg-sunken p-5 md:p-8">
+                {project.slug === 'asmodee-ai-platform' ? (
+                  <ArchitectureMap locale={locale} title={dict.projects.architectureTitle} legend={dict.projects.architectureLegend} />
+                ) : (
+                  <figure>
+                    <div className="overflow-x-auto">
+                      <Diagram
+                        diagram={project.diagram}
+                        id={project.slug}
+                        label={t(project.diagram.title, locale)}
+                        className="h-auto w-full min-w-diagram"
+                      />
+                    </div>
+                    <figcaption className="meta mt-4">{t(project.diagram.title, locale)}</figcaption>
+                  </figure>
+                )}
+              </div>
             </Block>
 
+            {project.shots.length > 0 && (
+              <Block title={cs.gallery} id="cs-gallery">
+                <div className="space-y-8">
+                  {desktopShots.map((s) => (
+                    <figure key={s.src}>
+                      <a href={`${s.src}.webp`} target="_blank" rel="noopener noreferrer" className="block transition-transform hover:-translate-y-0.5">
+                        <Shot shot={s} locale={locale} sizes="(min-width: 1024px) 48rem, 92vw" />
+                      </a>
+                      <figcaption className="meta mt-3">{t(s.alt, locale)}</figcaption>
+                    </figure>
+                  ))}
+                  {phoneShots.length > 0 && (
+                    <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+                      {phoneShots.map((s) => (
+                        <figure key={s.src}>
+                          <Shot shot={s} locale={locale} sizes="(min-width: 640px) 12rem, 45vw" />
+                          <figcaption className="meta mt-3">{t(s.alt, locale)}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Block>
+            )}
+
             {results.length > 0 && (
-              <Block title={cs.results}>
-                <ul className="max-w-prose divide-y divide-rule">
+              <Block title={cs.results} id="cs-results">
+                <ul className="max-w-prose space-y-3">
                   {results.map((r) => (
-                    <Copy key={r.en} text={t(r, locale)} as="li" className="py-3 first:pt-0" />
+                    <li key={r.en} className="flex gap-3">
+                      <span aria-hidden="true" className="mt-[0.6em] size-1.5 shrink-0 rounded-full bg-accent" />
+                      <Copy text={t(r, locale)} />
+                    </li>
                   ))}
                 </ul>
               </Block>
             )}
 
             {differently && (
-              <Block title={cs.differently}>
+              <Block title={cs.differently} id="cs-differently">
                 <Copy text={differently} as="p" className="max-w-prose text-lead" />
               </Block>
             )}
 
-            <a
-              href={`/${locale}/projects/${next.slug}`}
-              className="group block border-t border-rule-strong pt-3"
-            >
-              <span className="meta block">{cs.next}</span>
-              <span className="mt-2 block text-h3 font-strong transition-colors group-hover:text-accent">
-                {next.title} →
+            <a href={`/${locale}/projects/${next.slug}`} className="card group flex items-center justify-between gap-6 p-6 transition-shadow hover:shadow-lift">
+              <span>
+                <span className="font-mono text-micro uppercase text-muted">{cs.next}</span>
+                <span className="mt-1 block text-h3 font-strong group-hover:text-accent">{next.title}</span>
               </span>
+              <ArrowRight className="size-6 shrink-0 text-accent transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </div>

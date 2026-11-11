@@ -21,9 +21,11 @@ Copy `.env.example` to `.env.local` for the optional settings (site URL, booking
 | Path | What |
 |---|---|
 | `content/dictionaries/{en,fr}.ts` | Every UI string. `fr.ts` is typed against `en.ts`, so a missing key fails the build. |
-| `content/projects.ts` | Case studies and the "More projects" list, with the source of each fact. |
-| `content/experience.ts`, `content/skills.ts`, `content/site.ts` | Timeline, skill tiers, e-mail / links / CV paths. |
-| `app/tokens.css` | Design tokens: colours (light + dark), type scale, radius, widths. The only place raw values live (plus `lib/brand.ts` for OG images). |
+| `content/case-studies.ts` | Case studies (detail pages), with the source of each fact. |
+| `content/projects.ts` | The three tiers on the home page: flagship case studies, product & freelance cards, filterable lab list; hero metrics. |
+| `public/projects/<slug>/` | Curated screenshots as WebP (full size + `-800`). Raw material stays in the git-ignored `Rapport Lucas ZIVAN/`. |
+| `content/experience.ts`, `content/skills.ts`, `content/site.ts` | Timeline, skill categories, e-mail / links / CV paths. |
+| `app/tokens.css` | Design tokens: warm editorial palette (light only), type scale, radius, widths. The only place raw values live (plus `lib/brand.ts` for OG images). |
 | `app/[locale]/` | Routes: home, `projects/[slug]`, OG images, 404. |
 | `proxy.ts` | Redirects locale-less URLs using `Accept-Language`, EN fallback. |
 | `lib/` | i18n, SEO/JSON-LD, analytics, security headers/CSP, diagram layout, TODO handling — all unit-tested in `tests/`. |

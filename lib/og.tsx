@@ -7,11 +7,11 @@ export const ogSize = { width: 1200, height: 630 };
 
 const fontFiles = () =>
   Promise.all([
-    readFile(join(process.cwd(), 'assets/fonts/SchibstedGrotesk-SemiBold.ttf')),
-    readFile(join(process.cwd(), 'assets/fonts/IBMPlexMono-Regular.ttf')),
+    readFile(join(process.cwd(), 'assets/fonts/PlusJakartaSans-Bold.ttf')),
+    readFile(join(process.cwd(), 'assets/fonts/JetBrainsMono-Regular.ttf')),
   ]);
 
-/** Shared 1200×630 card: label, title, subtitle and up to three metrics, in the light palette. */
+/** Shared 1200×630 card: label, title, subtitle and up to three metrics, in the warm editorial palette. */
 export async function renderOg({
   label,
   title,
@@ -24,7 +24,7 @@ export async function renderOg({
   metrics: { value: string; caption: string }[];
 }) {
   const [sans, mono] = await fontFiles();
-  const c = brand.light;
+  const c = brand;
   return new ImageResponse(
     (
       <div
@@ -36,19 +36,22 @@ export async function renderOg({
           justifyContent: 'space-between',
           background: c.bg,
           color: c.fg,
-          padding: 64,
+          padding: '56px 64px',
           fontFamily: 'Sans',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'Mono', fontSize: 24, color: c.muted }}>
-          <span style={{ fontFamily: 'Sans', color: c.fg, fontSize: 32 }}>LZ</span>
+          <span style={{ display: 'flex', alignItems: 'center', fontFamily: 'Sans', color: c.fg, fontSize: 30 }}>
+            <span style={{ width: 16, height: 16, borderRadius: 8, background: c.accent, marginRight: 14 }} />
+            Lucas Zivan
+          </span>
           <span>{label}</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ fontSize: 64, lineHeight: 1.05, letterSpacing: '-0.03em', maxWidth: 1000 }}>{title}</div>
-          <div style={{ fontFamily: 'Mono', fontSize: 24, color: c.muted, marginTop: 20, maxWidth: 1000 }}>{subtitle}</div>
+          <div style={{ fontSize: 56, lineHeight: 1.08, letterSpacing: '-0.03em', maxWidth: 1040 }}>{title}</div>
+          <div style={{ fontFamily: 'Mono', fontSize: 20, color: c.muted, marginTop: 18, maxWidth: 1040 }}>{subtitle}</div>
         </div>
-        <div style={{ display: 'flex', borderTop: `2px solid ${c.fg}` }}>
+        <div style={{ display: 'flex', borderTop: `2px solid ${c.rule}` }}>
           {metrics.slice(0, 3).map((m, i) => (
             <div
               key={m.value}
@@ -56,13 +59,13 @@ export async function renderOg({
                 display: 'flex',
                 flexDirection: 'column',
                 flex: 1,
-                paddingTop: 20,
+                paddingTop: 18,
                 paddingLeft: i > 0 ? 24 : 0,
                 borderLeft: i > 0 ? `1px solid ${c.rule}` : 'none',
               }}
             >
-              <span style={{ fontSize: 52, color: c.fg }}>{m.value.replace('→', ' → ')}</span>
-              <span style={{ fontFamily: 'Mono', fontSize: 20, color: c.muted, marginTop: 6 }}>{m.caption}</span>
+              <span style={{ fontFamily: 'Mono', fontSize: 40, color: c.accent }}>{m.value.replace(/\s*→\s*/, ' → ')}</span>
+              <span style={{ fontFamily: 'Mono', fontSize: 17, color: c.muted, marginTop: 6, paddingRight: 16 }}>{m.caption}</span>
             </div>
           ))}
         </div>
@@ -71,7 +74,7 @@ export async function renderOg({
     {
       ...ogSize,
       fonts: [
-        { name: 'Sans', data: sans, weight: 600, style: 'normal' },
+        { name: 'Sans', data: sans, weight: 700, style: 'normal' },
         { name: 'Mono', data: mono, weight: 400, style: 'normal' },
       ],
     },

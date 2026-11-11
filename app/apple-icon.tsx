@@ -7,7 +7,7 @@ export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
 
 export default async function AppleIcon() {
-  const font = await readFile(join(process.cwd(), 'assets/fonts/SchibstedGrotesk-SemiBold.ttf'));
+  const font = await readFile(join(process.cwd(), 'assets/fonts/PlusJakartaSans-Bold.ttf'));
   return new ImageResponse(
     (
       <div
@@ -17,16 +17,17 @@ export default async function AppleIcon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: brand.dark.bg,
-          color: brand.dark.fg,
+          background: brand.bg,
+          color: brand.fg,
           fontFamily: 'Sans',
           fontSize: 92,
           letterSpacing: '-0.04em',
         }}
       >
-        LZ
+        <span>LZ</span>
+        <div style={{ width: 18, height: 18, borderRadius: 9, background: brand.accent, marginLeft: 4, marginTop: 44 }} />
       </div>
     ),
-    { ...size, fonts: [{ name: 'Sans', data: font, weight: 600, style: 'normal' }] },
+    { ...size, fonts: [{ name: 'Sans', data: font, weight: 700, style: 'normal' }] },
   );
 }

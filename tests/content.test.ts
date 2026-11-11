@@ -1,9 +1,13 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { en } from '@/content/dictionaries/en';
 import { fr } from '@/content/dictionaries/fr';
-import { caseStudies, minorProjects } from '@/content/projects';
+import { education, timeline, work } from '@/content/experience';
+import { caseStudies, flagshipProjects, heroMetrics, labProjects, productProjects } from '@/content/projects';
 import { cvFor } from '@/content/site';
-import { locales } from '@/content/types';
+import { skillGroups } from '@/content/skills';
+import { locales, type Shot } from '@/content/types';
 
 type Tree = { [k: string]: string | Tree };
 
@@ -24,6 +28,12 @@ function localized(value: unknown, path = ''): [string, Record<string, unknown>]
   return [];
 }
 
+const allShots: Shot[] = [
+  ...caseStudies.flatMap((p) => p.shots),
+  ...productProjects.flatMap((p) => p.parts?.map((part) => part.shot) ?? []),
+  ...labProjects.flatMap((p) => (p.shot ? [p.shot] : [])),
+];
+
 describe('dictionaries', () => {
   it('have identical keys and no empty strings', () => {
     const enLeaves = leaves(en as unknown as Tree);
@@ -35,7 +45,8 @@ describe('dictionaries', () => {
 
 describe('project content', () => {
   it('has every localized field filled in both languages', () => {
-    for (const [path, field] of localized({ caseStudies, minorProjects })) {
+    const content = { caseStudies, productProjects, labProjects, heroMetrics, skillGroups, work, education };
+    for (const [path, field] of localized(content)) {
       for (const l of locales) expect(String(field[l] ?? '').trim(), `${path}.${l}`).not.toBe('');
     }
   });
@@ -44,10 +55,47 @@ describe('project content', () => {
     const slugs = caseStudies.map((p) => p.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
     for (const p of caseStudies) for (const l of p.links) expect(l.href).toMatch(/^https:\/\//);
+    for (const p of labProjects) if (p.href) expect(p.href).toMatch(/^https:\/\//);
   });
 
   it('keeps metrics free of placeholders (numbers must trace to a source)', () => {
-    for (const p of caseStudies) for (const m of p.metrics) expect(m.value).not.toContain('TODO');
+    const metrics = [...caseStudies.flatMap((p) => p.metrics), ...heroMetrics, ...productProjects.flatMap((p) => (p.figure ? [p.figure] : []))];
+    for (const m of metrics) expect(m.value).not.toContain('TODO');
+  });
+
+  it('resolves the three flagship case studies in order', () => {
+    expect(flagshipProjects().map((p) => p.slug)).toEqual(['asmodee-ai-platform', 'easyq', 'tinyx']);
+  });
+
+  it('links grouped product cards to existing case studies', () => {
+    for (const p of productProjects) for (const part of p.parts ?? []) expect(caseStudies.map((c) => c.slug)).toContain(part.slug);
+  });
+
+  it('ships no screenshots for confidential work', () => {
+    for (const p of caseStudies.filter((c) => c.confidential)) expect(p.shots).toEqual([]);
+  });
+
+  it('points every screenshot at both WebP sizes in public/', () => {
+    for (const s of allShots) {
+      for (const suffix of ['', '-800']) {
+        expect(existsSync(join(process.cwd(), 'public', `${s.src}${suffix}.webp`)), `${s.src}${suffix}.webp`).toBe(true);
+      }
+    }
+  });
+});
+
+describe('timeline', () => {
+  it('merges work and education, most recent first', () => {
+    const starts = timeline().map((e) => e.start);
+    expect(starts).toEqual([...starts].sort().reverse());
+    expect(timeline()).toHaveLength(work.length + education.length);
+  });
+
+  it('does not mutate its input', () => {
+    const input = [...education].reverse();
+    const copy = [...input];
+    timeline(input);
+    expect(input).toEqual(copy);
   });
 });
 

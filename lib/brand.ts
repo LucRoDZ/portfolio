@@ -3,6 +3,12 @@
  * <meta name="theme-color">. Must mirror app/tokens.css — the only other place colours live.
  */
 export const brand = {
-  light: { bg: '#f5f4ef', fg: '#171715', muted: '#55544e', rule: '#d6d4cb', accent: '#b4400b' },
-  dark: { bg: '#121211', fg: '#ecebe5', muted: '#a6a59c', rule: '#2c2c29', accent: '#f27b3a' },
+  bg: '#f8f6f0',
+  surface: '#ffffff',
+  fg: '#1e1e1e',
+  muted: '#6e6d67',
+  rule: '#e6e1d7',
+  accent: '#c2410c',
+  pill: '#f1ece1',
+  onPill: '#78350f',
 } as const;
