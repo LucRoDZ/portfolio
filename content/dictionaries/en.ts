@@ -83,7 +83,6 @@ export const en = {
       comfortable: { title: 'Comfortable', note: 'Used on projects, productive quickly.' },
       management: { title: 'Consulting and product', note: 'To scope, decide and hand over.' },
     },
-    familiarLabel: 'Notions',
     languagesLabel: 'Languages',
   },
   contact: {

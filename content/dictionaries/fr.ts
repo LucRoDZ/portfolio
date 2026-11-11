@@ -84,7 +84,6 @@ export const fr: Dictionary = {
       comfortable: { title: 'À l’aise', note: 'Utilisé en projet, opérationnel rapidement.' },
       management: { title: 'Conseil et produit', note: 'Pour cadrer, décider et transmettre.' },
     },
-    familiarLabel: 'Notions',
     languagesLabel: 'Langues',
   },
   contact: {

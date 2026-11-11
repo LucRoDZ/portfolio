@@ -38,6 +38,10 @@ export const skillGroups: { id: 'production' | 'comfortable' | 'management'; ite
       'Azure',
       'Linux',
       'C',
+      'C++',
+      'Elasticsearch',
+      'Neo4j',
+      'NestJS',
     ],
   },
   {
@@ -53,6 +57,3 @@ export const skillGroups: { id: 'production' | 'comfortable' | 'management'; ite
     ],
   },
 ];
-
-/** Notions: used in school projects or briefly; listed apart so the three categories stay honest. */
-export const familiar = ['C++', 'Elasticsearch', 'Neo4j', 'NestJS'];
