@@ -4,9 +4,9 @@ export const en = {
     external: 'opens in a new tab',
   },
   meta: {
-    title: 'Lucas Zivan, backend and AI software engineer',
+    title: 'Lucas Zivan, software engineering and IT management',
     description:
-      'Backend and AI software engineer in my final year at EPITA Paris (Global IT Management major). Internship at Asmodee, freelance work, the EASY.Q SaaS. Looking for an end-of-studies internship or a full-time role in technology consulting (CTO advisory) from February 2027.',
+      'Final-year engineering student at EPITA Paris, Global IT Management major. Looking for an end-of-studies internship or a permanent position from February 2027, as a Tech Lead, IT consultant or Product Manager.',
     caseStudyTitle: '{title}, a case study by Lucas Zivan',
     notFoundTitle: 'Page not found, Lucas Zivan',
   },
@@ -27,10 +27,8 @@ export const en = {
   hero: {
     name: 'Lucas Zivan',
     availability: 'Available in February 2027',
-    headlineBefore: 'Software engineer, ',
-    headlineAccent: 'backend and AI',
-    headlineAfter: ', in my final year at EPITA Paris.',
-    lead: 'I am looking for an end-of-studies internship or a full-time role in technology consulting, working with CTOs, from February 2027. At Asmodee I built AI features for an internal platform used by more than 800 employees. As a freelancer I build web apps and APIs for clients. I am currently on exchange at Shibaura Institute of Technology in Tokyo.',
+    subtitle: 'Software engineering and IT management, final year of the engineering program at EPITA Paris.',
+    lead: 'I am looking for an end-of-studies internship or a permanent position from February 2027, as a Tech Lead, IT consultant or Product Manager. I also work as a freelancer, from scoping the need to going live. I am currently on exchange at Shibaura Institute of Technology in Tokyo.',
     ctaContact: 'Get in touch',
     ctaProjects: 'See the projects',
     ctaCv: 'Download my CV',
@@ -91,7 +89,7 @@ export const en = {
   contact: {
     label: 'Contact',
     title: 'Let’s talk about your project or an opportunity.',
-    body: 'I am looking for an end-of-studies internship or a full-time role in technology consulting from February 2027, and I take freelance missions now. The simplest way is to write to me.',
+    body: 'I am looking for an end-of-studies internship or a permanent position from February 2027, as a Tech Lead, IT consultant or Product Manager, and I take freelance missions now. The simplest way is to write to me.',
     emailLabel: 'Email',
     cvLabel: 'CV',
     send: 'Write to me',

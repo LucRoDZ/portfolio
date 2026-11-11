@@ -17,10 +17,6 @@ export function Contact({ locale, dict }: { locale: Locale; dict: Dictionary }) 
     <section id="contact" aria-labelledby="contact-title" className="pb-20 md:pb-28">
       <div className="page">
         <div className="card relative overflow-hidden p-6 sm:p-10 lg:p-14">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-accent-soft blur-3xl"
-          />
           <div className="relative grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <p className="eyebrow">{contact.label}</p>

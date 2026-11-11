@@ -16,7 +16,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const { hero } = getDictionary(locale);
   return renderOg({
     label: 'lucaszivan.app',
-    title: `${hero.headlineBefore}${hero.headlineAccent}${hero.headlineAfter}`,
+    title: hero.subtitle,
     subtitle: hero.availability,
     metrics: caseStudies[0].metrics.map((m) => ({ value: m.value, caption: t(m.caption, locale) })),
   });

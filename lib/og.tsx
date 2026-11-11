@@ -41,10 +41,7 @@ export async function renderOg({
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'Mono', fontSize: 24, color: c.muted }}>
-          <span style={{ display: 'flex', alignItems: 'center', fontFamily: 'Sans', color: c.fg, fontSize: 30 }}>
-            <span style={{ width: 16, height: 16, borderRadius: 8, background: c.accent, marginRight: 14 }} />
-            Lucas Zivan
-          </span>
+          <span style={{ fontFamily: 'Sans', color: c.fg, fontSize: 30 }}>Lucas Zivan</span>
           <span>{label}</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>

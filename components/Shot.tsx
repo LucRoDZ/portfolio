@@ -4,7 +4,7 @@ import { t } from '@/lib/i18n';
 /**
  * A pre-optimised WebP screenshot (see public/projects/). Plain <img> on purpose: the standalone
  * build ships without sharp, so next/image optimisation is not available at runtime.
- * Desktop captures get a light browser frame, phone captures a device frame.
+ * Desktop captures get a thin border, phone captures a device frame.
  */
 export function Shot({
   shot,
@@ -46,11 +46,6 @@ export function Shot({
 
   return (
     <div className={`overflow-hidden rounded-md border border-rule bg-surface shadow-card ${className ?? ''}`}>
-      <div aria-hidden="true" className="flex h-6 items-center gap-1.5 border-b border-rule bg-sunken px-3">
-        <span className="size-2 rounded-full bg-rule-strong" />
-        <span className="size-2 rounded-full bg-rule-strong" />
-        <span className="size-2 rounded-full bg-rule-strong" />
-      </div>
       {img}
     </div>
   );

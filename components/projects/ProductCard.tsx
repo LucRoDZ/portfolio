@@ -28,7 +28,7 @@ export function ProductCard({ project, locale, dict }: { project: ProductProject
         <ul className="mt-5 space-y-2 border-t border-rule pt-5">
           {project.proof.map((p) => (
             <li key={p.en} className="flex gap-3 text-meta">
-              <span aria-hidden="true" className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-accent" />
+              <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-accent" />
               {t(p, locale)}
             </li>
           ))}

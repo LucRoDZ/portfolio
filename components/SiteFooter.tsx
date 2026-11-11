@@ -11,7 +11,6 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
     <footer className="border-t border-rule">
       <div className="page flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-center gap-2.5 text-meta">
-          <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
           <span className="font-strong">Lucas Zivan</span>
           <span className="text-muted">{new Date().getFullYear()}</span>
         </p>

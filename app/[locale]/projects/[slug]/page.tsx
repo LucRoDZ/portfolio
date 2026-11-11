@@ -71,10 +71,6 @@ export default async function CaseStudyPage({ params }: Props) {
     <main id="main">
       <article>
         <header className="relative overflow-hidden border-b border-rule">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--rule-strong)_1px,transparent_1px)] [background-size:22px_22px] opacity-50 [mask-image:radial-gradient(ellipse_60%_70%_at_80%_0%,black,transparent)]"
-          />
           <div className="page relative pt-10 pb-14 md:pt-14 md:pb-20">
             <nav aria-label={cs.breadcrumb} className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <a href={`/${locale}#projects`} className="btn-ghost -ml-5 text-muted">
@@ -217,7 +213,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 <ul className="max-w-prose space-y-3">
                   {results.map((r) => (
                     <li key={r.en} className="flex gap-3">
-                      <span aria-hidden="true" className="mt-[0.6em] size-1.5 shrink-0 rounded-full bg-accent" />
+                      <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-accent" />
                       <Copy text={t(r, locale)} />
                     </li>
                   ))}

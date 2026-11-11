@@ -24,8 +24,7 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
         {nav.skip}
       </a>
       <div className="page relative flex h-16 items-center justify-between gap-4">
-        <a href={`/${locale}`} aria-label={nav.home} className="inline-flex min-h-11 items-center gap-2.5 font-strong tracking-tight">
-          <span aria-hidden="true" className="size-2.5 rounded-full bg-accent shadow-[0_0_0_4px_var(--accent-soft)]" />
+        <a href={`/${locale}`} aria-label={nav.home} className="inline-flex min-h-11 items-center font-strong tracking-tight">
           Lucas Zivan
         </a>
 

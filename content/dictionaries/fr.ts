@@ -5,9 +5,9 @@ export const fr: Dictionary = {
     external: 's’ouvre dans un nouvel onglet',
   },
   meta: {
-    title: 'Lucas Zivan, ingénieur logiciel backend et IA',
+    title: 'Lucas Zivan, ingénierie logicielle et management des SI',
     description:
-      'Ingénieur logiciel backend et IA, en dernière année à l’EPITA Paris (majeure Global IT Management). Stage chez Asmodee, missions freelance, SaaS EASY.Q. Je cherche un stage de fin d’études ou un CDI en conseil technique (CTO advisory) à partir de février 2027.',
+      'Élève-ingénieur en dernière année à l’EPITA Paris, majeure Global IT Management. Je cherche un stage de fin d’études ou un CDI à partir de février 2027, comme Tech Lead, consultant IT ou Product Manager.',
     caseStudyTitle: '{title}, étude de cas de Lucas Zivan',
     notFoundTitle: 'Page introuvable, Lucas Zivan',
   },
@@ -28,10 +28,8 @@ export const fr: Dictionary = {
   hero: {
     name: 'Lucas Zivan',
     availability: 'Disponible en février 2027',
-    headlineBefore: 'Ingénieur logiciel ',
-    headlineAccent: 'backend et IA',
-    headlineAfter: ', en dernière année à l’EPITA Paris.',
-    lead: 'Je cherche un stage de fin d’études ou un CDI en conseil technique, aux côtés de CTO, à partir de février 2027. Chez Asmodee, j’ai développé des fonctionnalités IA pour une plateforme interne utilisée par plus de 800 employés. En freelance, je développe des applications web et des API pour des clients. Je suis actuellement en échange au Shibaura Institute of Technology, à Tokyo.',
+    subtitle: 'Ingénierie logicielle et management des SI, en dernière année du cycle ingénieur à l’EPITA Paris.',
+    lead: 'Je cherche un stage de fin d’études ou un CDI à partir de février 2027, comme Tech Lead, consultant IT ou Product Manager. Je travaille aussi en freelance, du cadrage du besoin à la mise en production. Je suis actuellement en échange au Shibaura Institute of Technology, à Tokyo.',
     ctaContact: 'Me contacter',
     ctaProjects: 'Voir les projets',
     ctaCv: 'Télécharger mon CV',
@@ -92,7 +90,7 @@ export const fr: Dictionary = {
   contact: {
     label: 'Contact',
     title: 'Parlons de votre projet ou d’une opportunité.',
-    body: 'Je cherche un stage de fin d’études ou un CDI en conseil technique à partir de février 2027, et je prends des missions freelance dès maintenant. Le plus simple est de m’écrire.',
+    body: 'Je cherche un stage de fin d’études ou un CDI à partir de février 2027, comme Tech Lead, consultant IT ou Product Manager, et je prends des missions freelance dès maintenant. Le plus simple est de m’écrire.',
     emailLabel: 'E-mail',
     cvLabel: 'CV',
     send: 'M’écrire',

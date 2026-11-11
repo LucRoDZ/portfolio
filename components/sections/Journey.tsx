@@ -13,20 +13,14 @@ export function Journey({ locale, dict }: { locale: Locale; dict: Dictionary }) 
       <div className="page">
         <SectionHeading id="journey-title" label={journey.label} title={journey.title} />
 
-        <ol className="relative mt-14 space-y-10 before:absolute before:top-2 before:bottom-2 before:left-[5px] before:w-px before:bg-rule-strong md:before:left-[calc(14rem+5px)]">
+        <ol className="mt-12 divide-y divide-rule border-y border-rule">
           {timeline().map((e) => (
-            <li key={e.org + e.start} className="relative grid gap-x-10 gap-y-1 pl-8 md:grid-cols-[14rem_1fr] md:pl-0">
-              <span
-                aria-hidden="true"
-                className={`absolute top-1.5 left-0 size-[11px] rounded-full border-2 border-accent md:left-56 ${
-                  e.type === 'work' ? 'bg-accent' : 'bg-surface'
-                }`}
-              />
-              <div className="md:pr-8 md:text-right">
+            <li key={e.org + e.start} className="grid gap-x-10 gap-y-1 py-8 md:grid-cols-[14rem_1fr]">
+              <div>
                 <p className="font-mono text-meta text-fg">{t(e.period, locale)}</p>
                 <p className="text-meta text-muted">{e.type === 'work' ? journey.work : journey.education}</p>
               </div>
-              <div className="md:pl-8">
+              <div>
                 <h3 className="text-h4 font-strong">
                   {t(e.title, locale)}, <span className="font-medium text-muted">{e.org}</span>
                 </h3>

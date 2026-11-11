@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowRight } from '../icons';
 
 type Audience = 'business' | 'technical';
 
@@ -52,8 +53,12 @@ export function TwoWayCards({
               {audience === 'business' ? c.business : c.technical}
             </p>
             {c.href && (
-              <a href={c.href} className="link mt-auto self-start pt-5 text-meta font-medium">
+              <a
+                href={c.href}
+                className="group mt-auto inline-flex items-center gap-2 self-start pt-6 text-meta font-strong text-accent hover:underline hover:underline-offset-4"
+              >
                 {labels.readMore}
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </a>
             )}
           </li>
