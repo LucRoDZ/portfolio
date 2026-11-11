@@ -4,6 +4,7 @@ import { t } from '@/lib/i18n';
 import { ArrowRight } from '../icons';
 import { MetricValue } from '../Metric';
 import { Shot } from '../Shot';
+import { StackLine } from '../StackLine';
 
 export function ProductCard({ project, locale, dict }: { project: ProductProject; locale: Locale; dict: Dictionary }) {
   return (
@@ -15,8 +16,8 @@ export function ProductCard({ project, locale, dict }: { project: ProductProject
         </div>
         {project.figure && (
           <p className="shrink-0 text-right">
-            <MetricValue value={project.figure.value} to={dict.common.to} className="block text-h2 leading-none text-accent" />
-            <span className="mt-1 block max-w-28 font-mono text-micro text-muted">{t(project.figure.caption, locale)}</span>
+            <MetricValue value={project.figure.value} className="block text-h2 leading-none text-accent" />
+            <span className="mt-1 block max-w-28 text-meta leading-snug text-muted">{t(project.figure.caption, locale)}</span>
           </p>
         )}
       </div>
@@ -53,13 +54,7 @@ export function ProductCard({ project, locale, dict }: { project: ProductProject
         </div>
       )}
 
-      <ul className="mt-auto flex flex-wrap gap-1.5 pt-6" aria-label={dict.caseStudy.stack}>
-        {project.stack.map((s) => (
-          <li key={s} className="pill">
-            {s}
-          </li>
-        ))}
-      </ul>
+      <StackLine items={project.stack} label={dict.caseStudy.stack} className="mt-auto pt-6" />
     </article>
   );
 }

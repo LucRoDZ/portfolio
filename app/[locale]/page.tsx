@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Approach } from '@/components/sections/Approach';
 import { Contact } from '@/components/sections/Contact';
 import { Hero } from '@/components/sections/Hero';
 import { Journey } from '@/components/sections/Journey';
@@ -32,6 +33,7 @@ export default async function Home({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd(locale, dict.meta.description)) }}
       />
       <Hero locale={locale} dict={dict} />
+      <Approach locale={locale} dict={dict} />
       <Projects locale={locale} dict={dict} />
       <Journey locale={locale} dict={dict} />
       <Skills locale={locale} dict={dict} />

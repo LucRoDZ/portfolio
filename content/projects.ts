@@ -10,7 +10,7 @@ export const flagshipSlugs = ['asmodee-ai-platform', 'easyq', 'tinyx'] as const;
 export const productProjects: ProductProject[] = [
   {
     title: { en: 'Aurora International Academy', fr: 'Aurora International Academy' },
-    kind: { en: 'Call for tender · led a team of 5', fr: 'Appel d’offres · équipe de 5 pilotée' },
+    kind: { en: 'Call for tender, team of 5 that I led', fr: 'Appel d’offres, équipe de 5 pilotée' },
     summary: {
       en: 'Our answer to an RFP for a school’s digital suite: a progressive web app designed from the client’s requirements, phased and mocked up.',
       fr: 'Notre réponse à un appel d’offres pour la suite numérique d’une école : une Progressive Web App conçue à partir du cahier des charges, phasée et maquettée.',
@@ -25,7 +25,7 @@ export const productProjects: ProductProject[] = [
   },
   {
     title: { en: 'Strategic Business Simulation', fr: 'Strategic Business Simulation' },
-    kind: { en: 'GITM major · management', fr: 'Majeure GITM · management' },
+    kind: { en: 'Management, GITM major', fr: 'Management, majeure GITM' },
     summary: {
       en: 'Ran a fictional robotics company over 8 quarters, from the numbers to the CSR strategy.',
       fr: 'Pilotage d’une entreprise de robotique fictive sur 8 trimestres, des chiffres à la stratégie RSE.',
@@ -39,7 +39,7 @@ export const productProjects: ProductProject[] = [
   },
   {
     title: { en: 'Industrial drift detection POC', fr: 'POC de détection de dérives industrielles' },
-    kind: { en: 'Freelance · confidential client', fr: 'Freelance · client confidentiel' },
+    kind: { en: 'Freelance, confidential client', fr: 'Freelance, client confidentiel' },
     summary: {
       en: 'An AI backend that flags drifts in a manufacturing process for annual product reporting, delivered so the client can run it without me.',
       fr: 'Un backend IA qui signale les dérives d’un procédé de fabrication pour le reporting produit annuel, livré pour que le client puisse l’exploiter sans moi.',
@@ -52,7 +52,7 @@ export const productProjects: ProductProject[] = [
   },
   {
     title: { en: 'NYOS APR & EcoMuni', fr: 'NYOS APR & EcoMuni' },
-    kind: { en: 'AI SaaS · Gemini assistants', fr: 'SaaS IA · assistants Gemini' },
+    kind: { en: 'AI SaaS with Gemini assistants', fr: 'SaaS IA avec assistants Gemini' },
     summary: {
       en: 'Two data products with a Gemini assistant: pharmaceutical quality reporting and energy tracking for municipalities.',
       fr: 'Deux produits data avec assistant Gemini : reporting qualité pharmaceutique et suivi énergétique des communes.',
@@ -85,7 +85,7 @@ export const productProjects: ProductProject[] = [
 export const labProjects: LabProject[] = [
   {
     title: { en: '42sh', fr: '42sh' },
-    kind: { en: 'EPITA · one month', fr: 'EPITA · un mois' },
+    kind: { en: 'EPITA, one month', fr: 'EPITA, un mois' },
     summary: { en: 'An interactive POSIX shell: parsing, pipelines, redirections, built-ins.', fr: 'Un shell interactif POSIX : parsing, pipelines, redirections, builtins.' },
     stack: ['C', 'POSIX', 'Linux'],
     category: 'systems',
@@ -142,27 +142,35 @@ export const labProjects: LabProject[] = [
   },
   {
     title: { en: 'SnAick', fr: 'SnAick' },
-    kind: { en: 'AI side project · in progress', fr: 'Projet IA personnel · en cours' },
+    kind: { en: 'AI side project, in progress', fr: 'Projet IA personnel, en cours' },
     summary: {
       en: 'Cooking assistant: swipe-to-discover recipes, fridge scan with GPT-4 Vision, LangGraph agents and pgvector recommendations.',
       fr: 'Assistant de cuisine : recettes à swiper, scan du frigo par GPT-4 Vision, agents LangGraph et recommandations pgvector.',
     },
     stack: ['FastAPI', 'LangGraph', 'PostgreSQL', 'pgvector', 'Celery', 'Vue 3'],
     category: 'ai',
-    // TODO(lucas): confirm the context (personal, school or client) — taken from the README only.
+    // TODO(lucas): confirm the context (personal, school or client); taken from the README only.
   },
 ];
 
 /**
  * Hero band. "800+" counts employees with an account on the platform; the usage dashboard in the
  * internship report shows 932 accounts and 707 active users (21 Jan 2026), so do not call them "active".
- * TODO(lucas): the internship report (written mid-January) says 80% coverage — check that 88% is the final figure.
+ * 88% matches Lucas's CV of 9 Nov 2026 (the mid-January internship report said 80%).
  */
 export const heroMetrics: ProofMetric[] = [
-  { value: '13% → 4%', caption: { en: 'error rate of LLM file generation', fr: 'taux d’erreur de la génération de fichiers par LLM' }, source: 'Asmodee' },
-  { value: '0 → 88%', caption: { en: 'backend test coverage', fr: 'couverture de tests backend' }, source: 'Pytest · Tox · CI' },
-  { value: '800+', caption: { en: 'employees on the multi-LLM platform', fr: 'employés sur la plateforme multi-LLM' }, source: 'Asmodee' },
-  { value: '14', caption: { en: 'people led on a microservices architecture', fr: 'personnes pilotées sur une architecture microservices' }, source: 'TinyX' },
+  {
+    value: '4%',
+    caption: { en: 'error rate on AI-generated files, down from 13% after a model benchmark', fr: 'd’erreurs sur les fichiers générés par IA, contre 13 % avant mon benchmark de modèles' },
+    source: 'Asmodee',
+  },
+  {
+    value: '88%',
+    caption: { en: 'test coverage on a backend that started with none', fr: 'de couverture de tests sur un backend qui n’en avait aucun' },
+    source: 'Asmodee',
+  },
+  { value: '800+', caption: { en: 'employees use the AI platform I worked on', fr: 'employés utilisent la plateforme IA sur laquelle j’ai travaillé' }, source: 'Asmodee' },
+  { value: '14', caption: { en: 'people coordinated on a microservices architecture', fr: 'personnes coordonnées sur une architecture microservices' }, source: 'TinyX' },
 ];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {

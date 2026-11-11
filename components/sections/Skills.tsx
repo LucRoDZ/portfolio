@@ -10,27 +10,23 @@ export function Skills({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <section id="skills" aria-labelledby="skills-title" className="section">
       <div className="page">
-        <SectionHeading index={3} id="skills-title" label={skills.label} title={skills.title} />
+        <SectionHeading id="skills-title" label={skills.label} title={skills.title} />
 
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
-          {skillGroups.map((g, i) => {
+          {skillGroups.map((g) => {
             const copy = skills.groups[g.id];
+            const items = g.items.map((s) => (typeof s === 'string' ? s : t(s, locale)));
             return (
-              <div key={g.id} className={`card flex flex-col p-6 sm:p-8 ${i === 0 ? 'ring-1 ring-accent/25' : ''}`}>
-                <h3 className="flex items-center gap-2.5 text-h4 font-strong">
-                  {i === 0 && <span aria-hidden="true" className="size-2 rounded-full bg-accent" />}
-                  {copy.title}
-                </h3>
+              <div key={g.id} className="card flex flex-col p-6 sm:p-8">
+                <h3 className="text-h4 font-strong">{copy.title}</h3>
                 <p className="mt-1 text-meta text-muted">{copy.note}</p>
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {g.items.map((s) => {
-                    const label = typeof s === 'string' ? s : t(s, locale);
-                    return (
-                      <li key={label} className="pill px-3 py-1">
-                        {label}
-                      </li>
-                    );
-                  })}
+                <ul className="mt-6 space-y-1.5">
+                  {items.map((label) => (
+                    <li key={label} className="flex gap-3">
+                      <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-accent" />
+                      {label}
+                    </li>
+                  ))}
                 </ul>
               </div>
             );
@@ -40,7 +36,7 @@ export function Skills({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <dl className="mt-8 grid gap-4 border-t border-rule pt-6 text-meta sm:grid-cols-2">
           <div className="flex flex-wrap gap-x-3">
             <dt className="font-strong">{skills.familiarLabel}</dt>
-            <dd className="text-muted">{familiar.join(' · ')}</dd>
+            <dd className="text-muted">{familiar.join(', ')}</dd>
           </div>
           <div className="flex flex-wrap gap-x-3">
             <dt className="font-strong">{skills.languagesLabel}</dt>

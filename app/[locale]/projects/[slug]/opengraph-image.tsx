@@ -4,7 +4,7 @@ import { ogSize, renderOg } from '@/lib/og';
 
 export const size = ogSize;
 export const contentType = 'image/png';
-export const alt = 'Case study — Lucas Zivan';
+export const alt = 'Case study by Lucas Zivan';
 
 export function generateStaticParams() {
   return caseStudies.map((p) => ({ slug: p.slug }));
@@ -16,7 +16,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const project = getCaseStudy(slug) ?? caseStudies[0];
   const dict = getDictionary(locale);
   return renderOg({
-    label: `${dict.caseStudy.breadcrumb} · Lucas Zivan`,
+    label: `${dict.caseStudy.breadcrumb}, Lucas Zivan`,
     title: project.title,
     subtitle: t(project.pitch, locale),
     metrics: project.metrics.map((m) => ({ value: m.value, caption: t(m.caption, locale) })),

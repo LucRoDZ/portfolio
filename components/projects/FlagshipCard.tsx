@@ -6,6 +6,7 @@ import { Diagram } from '../Diagram';
 import { ArrowRight, Lock } from '../icons';
 import { MetricValue } from '../Metric';
 import { Shot } from '../Shot';
+import { StackLine } from '../StackLine';
 
 /** The visual half of a flagship card: architecture for employer work, screenshots when they exist. */
 function Visual({ project, locale, dict }: { project: CaseStudy; locale: Locale; dict: Dictionary }) {
@@ -62,11 +63,7 @@ export function FlagshipCard({
   return (
     <article aria-labelledby={titleId} className="card group relative grid overflow-hidden transition-shadow hover:shadow-lift has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-accent lg:grid-cols-12">
       <div className={`flex flex-col p-6 sm:p-8 lg:col-span-5 lg:p-10 ${reversed ? 'lg:order-2' : ''}`}>
-        <p className="eyebrow flex items-center gap-3">
-          <span>{String(index + 1).padStart(2, '0')}</span>
-          <span aria-hidden="true" className="h-px w-6 bg-accent" />
-          <span>{t(project.kind, locale)}</span>
-        </p>
+        <p className="eyebrow">{t(project.kind, locale)}</p>
         <h4 id={titleId} className="mt-4 text-h3 font-strong">
           <a href={href} className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none">
             {project.title}
@@ -80,20 +77,14 @@ export function FlagshipCard({
               <div key={m.value} className="flex flex-col-reverse justify-end gap-1">
                 <dt className="text-meta leading-snug text-muted">{t(m.caption, locale)}</dt>
                 <dd>
-                  <MetricValue value={m.value} to={dict.common.to} className="text-h4 whitespace-nowrap text-accent" />
+                  <MetricValue value={m.value} className="text-h4 whitespace-nowrap text-accent" />
                 </dd>
               </div>
             ))}
           </dl>
         )}
 
-        <ul className="mt-6 flex flex-wrap gap-1.5" aria-label={dict.caseStudy.stack}>
-          {project.stack.slice(0, 7).map((s) => (
-            <li key={s} className="pill">
-              {s}
-            </li>
-          ))}
-        </ul>
+        <StackLine items={project.stack.slice(0, 7)} label={dict.caseStudy.stack} className="mt-6" />
 
         <div className="mt-auto pt-8">
           {project.confidential && (

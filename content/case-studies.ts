@@ -19,16 +19,16 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'asmodee-ai-platform',
     title: 'Asmodee AI platform',
-    kind: { en: 'Internship · Asmodee', fr: 'Stage · Asmodee' },
+    kind: { en: 'Internship at Asmodee', fr: 'Stage chez Asmodee' },
     pitch: {
-      en: 'AI features for an internal multi-LLM platform used by 800+ Asmodee employees: LLM file generation, OCR, translation and voice dictation — shipped with the tests and CI that keep them working.',
-      fr: 'Des fonctionnalités IA pour une plateforme multi-LLM interne utilisée par plus de 800 employés d’Asmodee : génération de fichiers par LLM, OCR, traduction et dictée vocale — livrées avec les tests et la CI qui les maintiennent.',
+      en: 'AI features for an internal multi-LLM platform used by 800+ Asmodee employees: LLM file generation, OCR, translation and voice dictation, shipped with the tests and CI that keep them working.',
+      fr: 'Des fonctionnalités IA pour une plateforme multi-LLM interne utilisée par plus de 800 employés d’Asmodee : génération de fichiers par LLM, OCR, traduction et dictée vocale, livrées avec les tests et la CI qui les maintiennent.',
     },
-    period: { en: 'Sept 2025 – Jan 2026 · 21 weeks', fr: 'sept. 2025 – janv. 2026 · 21 semaines' },
+    period: { en: 'Sept 2025 to Jan 2026, 21 weeks', fr: 'sept. 2025 à janv. 2026, 21 semaines' },
     role: { en: 'Full-stack developer intern', fr: 'Stagiaire développeur full-stack' },
     team: {
-      en: 'AI & Data team of 5 in the IT department · two-week sprints, daily stand-ups, review before every merge',
-      fr: 'Équipe IA & Data de 5 personnes (DSI) · sprints de deux semaines, daily, revue avant chaque merge',
+      en: 'AI & Data team of 5 in the IT department, with two-week sprints, daily stand-ups and a review before every merge',
+      fr: 'Équipe IA & Data de 5 personnes à la DSI, en sprints de deux semaines avec daily et revue avant chaque merge',
     },
     context: {
       en: 'Asmodee wanted one AI tool built and run in-house rather than scattered external licences. The platform was already in production when I joined; my job was to widen what it could do and to make the backend safe to change.',
@@ -52,8 +52,8 @@ export const caseStudies: CaseStudy[] = [
       {
         title: { en: 'Specialised providers behind one API', fr: 'Des fournisseurs spécialisés derrière une seule API' },
         body: {
-          en: 'Mistral OCR (PDF → Base64 → Markdown pages with images), DeepL and Whisper dictation sit behind the FastAPI/LangChain services. The Vue front-end calls one API whichever provider does the work.',
-          fr: 'Mistral OCR (PDF → Base64 → pages Markdown avec images), DeepL et la dictée Whisper sont derrière les services FastAPI/LangChain. Le front Vue appelle une seule API, quel que soit le fournisseur.',
+          en: 'Mistral OCR (PDFs turned into Markdown pages with their images), DeepL and Whisper dictation sit behind the FastAPI/LangChain services. The Vue front-end calls one API whichever provider does the work.',
+          fr: 'Mistral OCR (PDF transformés en pages Markdown avec leurs images), DeepL et la dictée Whisper sont derrière les services FastAPI/LangChain. Le front Vue appelle une seule API, quel que soit le fournisseur.',
         },
       },
       {
@@ -65,8 +65,8 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      { en: 'File generation error rate: 13% → 4%.', fr: 'Taux d’erreur de la génération de fichiers : 13 % → 4 %.' },
-      { en: 'Backend test coverage: 0 → 88% (Pytest, Tox, GitHub Actions).', fr: 'Couverture de tests backend : 0 → 88 % (Pytest, Tox, GitHub Actions).' },
+      { en: 'File generation error rate down from 13% to 4%.', fr: 'Taux d’erreur de la génération de fichiers ramené de 13 % à 4 %.' },
+      { en: 'Backend test coverage up from 0 to 88% (Pytest, Tox, GitHub Actions).', fr: 'Couverture de tests backend portée de 0 à 88 % (Pytest, Tox, GitHub Actions).' },
       {
         en: 'In production: voice dictation, PDF OCR, Word/Excel generation, DeepL, Projects (conversations grouped under shared instructions), message feedback.',
         fr: 'En production : dictée vocale, OCR des PDF, génération Word/Excel, DeepL, Projets (conversations regroupées sous des instructions communes), évaluation des réponses.',
@@ -77,8 +77,8 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     metrics: [
-      { value: '13% → 4%', caption: { en: 'error rate, LLM file generation', fr: 'taux d’erreur, génération de fichiers' } },
-      { value: '0 → 88%', caption: { en: 'backend test coverage', fr: 'couverture de tests backend' } },
+      { value: '4%', caption: { en: 'error rate on generated files, down from 13%', fr: 'd’erreurs sur les fichiers générés, contre 13 % avant' } },
+      { value: '88%', caption: { en: 'backend test coverage, starting from zero', fr: 'de couverture de tests, en partant de zéro' } },
       { value: '800+', caption: { en: 'employees on the platform', fr: 'employés sur la plateforme' } },
     ],
     diagram: {
@@ -86,10 +86,10 @@ export const caseStudies: CaseStudy[] = [
       cols: 3,
       rows: 4,
       nodes: [
-        { id: 'spa', label: 'Vue 3 front-end', sub: 'Pinia · Tailwind', col: 0, row: 1 },
-        { id: 'api', label: 'FastAPI backend', sub: 'LangChain · LangGraph', col: 1, row: 1 },
-        { id: 'ci', label: 'GitHub Actions', sub: 'Pytest · Tox', col: 1, row: 3 },
-        { id: 'llm', label: 'LLM providers', sub: 'GPT-4o · Gemini', col: 2, row: 0 },
+        { id: 'spa', label: 'Vue 3 front-end', sub: 'Pinia, Tailwind', col: 0, row: 1 },
+        { id: 'api', label: 'FastAPI backend', sub: 'LangChain, LangGraph', col: 1, row: 1 },
+        { id: 'ci', label: 'GitHub Actions', sub: 'Pytest, Tox', col: 1, row: 3 },
+        { id: 'llm', label: 'LLM providers', sub: 'GPT-4o, Gemini', col: 2, row: 0 },
         { id: 'ocr', label: 'Mistral OCR', col: 2, row: 1 },
         { id: 'deepl', label: 'DeepL', sub: 'translation', col: 2, row: 2 },
         { id: 'whisper', label: 'Whisper', sub: 'voice dictation', col: 2, row: 3 },
@@ -125,27 +125,27 @@ export const caseStudies: CaseStudy[] = [
     ],
     confidential: true,
     differently: {
-      en: 'OCR on long PDFs (over 50 pages) still takes 30–45 seconds; I would process pages in parallel. And I would add end-to-end tests on the main user journeys — the suite I built is unit-level only.',
-      fr: 'L’OCR des PDF longs (plus de 50 pages) prend encore 30 à 45 secondes : je traiterais les pages en parallèle. Et j’ajouterais des tests end-to-end sur les parcours principaux — la suite que j’ai construite reste au niveau unitaire.',
+      en: 'OCR on long PDFs (over 50 pages) still takes 30 to 45 seconds; I would process pages in parallel. And I would add end-to-end tests on the main user journeys, since the suite I built is unit-level only.',
+      fr: 'L’OCR des PDF longs (plus de 50 pages) prend encore 30 à 45 secondes : je traiterais les pages en parallèle. Et j’ajouterais des tests end-to-end sur les parcours principaux, car la suite que j’ai construite reste au niveau unitaire.',
     },
   },
   {
     slug: 'easyq',
     title: 'EASY.Q',
-    kind: { en: 'Restaurant SaaS · co-founder & CTO', fr: 'SaaS restauration · cofondateur & CTO' },
+    kind: { en: 'Restaurant SaaS, co-founder and CTO', fr: 'SaaS restauration, cofondateur et CTO' },
     pitch: {
-      en: 'Scan, eat, pay: QR digital menu, an AI virtual waiter, table ordering, payment and a live kitchen display — one product for restaurants, from PDF menu to paid bill.',
-      fr: 'Scan, eat, pay : menu digital par QR code, serveur virtuel IA, commande à table, paiement et écran cuisine temps réel — un seul produit pour les restaurants, du menu PDF à l’addition réglée.',
+      en: 'Scan, eat, pay: QR digital menu, an AI virtual waiter, table ordering, payment and a live kitchen display. One product for restaurants, from PDF menu to paid bill.',
+      fr: 'Scan, eat, pay : menu digital par QR code, serveur virtuel IA, commande à table, paiement et écran cuisine en temps réel. Un seul produit pour les restaurants, du menu PDF à l’addition réglée.',
     },
-    period: { en: '2026 — TODO(lucas): start month', fr: '2026 — TODO(lucas): mois de début' },
+    period: { en: '2026, TODO(lucas): start month', fr: '2026, TODO(lucas): mois de début' },
     role: {
       en: 'CTO and sole developer: architecture, back-end, front-end, AI integration, UX',
       fr: 'CTO et seul développeur : architecture, backend, front, intégration IA, UX',
     },
     team: { en: 'Three co-founders (CTO, CEO, CBO)', fr: 'Trois cofondateurs (CTO, CEO, CBO)' },
     context: {
-      en: 'In a restaurant, guests wait twice — to order and to pay — orders get lost between floor and kitchen, and owners have no live view of sales. EASY.Q started with West Africa’s mobile-money market in mind; payments there need a BCEAO banking licence, so we chose to validate the model in France first.',
-      fr: 'Au restaurant, le client attend deux fois — pour commander puis pour payer —, les commandes se perdent entre la salle et la cuisine, et le restaurateur n’a aucune vue en direct sur ses ventes. EASY.Q visait d’abord le marché du mobile money en Afrique de l’Ouest ; le paiement y exige une licence bancaire BCEAO, nous avons donc choisi de valider le modèle en France d’abord.',
+      en: 'In a restaurant, guests wait twice, to order and then to pay, orders get lost between floor and kitchen, and owners have no live view of sales. EASY.Q started with West Africa’s mobile-money market in mind; payments there need a BCEAO banking licence, so we chose to validate the model in France first.',
+      fr: 'Au restaurant, le client attend deux fois, pour commander puis pour payer, les commandes se perdent entre la salle et la cuisine, et le restaurateur n’a aucune vue en direct sur ses ventes. EASY.Q visait d’abord le marché du mobile money en Afrique de l’Ouest ; le paiement y exige une licence bancaire BCEAO, nous avons donc choisi de valider le modèle en France d’abord.',
     },
     decisions: [
       {
@@ -189,8 +189,8 @@ export const caseStudies: CaseStudy[] = [
       },
       { en: 'Deployed on easyq.fr (Vercel + OVH).', fr: 'Déployé sur easyq.fr (Vercel + OVH).' },
       {
-        en: 'TODO(lucas): usage — restaurants onboarded, orders processed, or pilot feedback',
-        fr: 'TODO(lucas): usage — restaurants inscrits, commandes traitées ou retours pilotes',
+        en: 'TODO(lucas): usage, restaurants onboarded, orders processed, or pilot feedback',
+        fr: 'TODO(lucas): usage, restaurants inscrits, commandes traitées ou retours pilotes',
       },
     ],
     metrics: [
@@ -203,13 +203,13 @@ export const caseStudies: CaseStudy[] = [
       cols: 3,
       rows: 4,
       nodes: [
-        { id: 'pwa', label: 'Customer PWA', sub: 'React · Vite', col: 0, row: 0 },
+        { id: 'pwa', label: 'Customer PWA', sub: 'React, Vite', col: 0, row: 0 },
         { id: 'owner', label: 'Owner dashboard', sub: 'React', col: 0, row: 1 },
         { id: 'kds', label: 'Kitchen display', sub: 'WebSocket', col: 0, row: 2 },
-        { id: 'api', label: 'FastAPI', sub: 'async · Nginx · Docker', col: 1, row: 1 },
-        { id: 'pg', label: 'PostgreSQL', sub: 'SQLAlchemy · Alembic', col: 2, row: 0 },
-        { id: 'redis', label: 'Redis', sub: 'cache · pub/sub', col: 2, row: 1 },
-        { id: 'gemini', label: 'Gemini', sub: 'OCR · i18n · chat SSE', col: 2, row: 2 },
+        { id: 'api', label: 'FastAPI', sub: 'async, Nginx, Docker', col: 1, row: 1 },
+        { id: 'pg', label: 'PostgreSQL', sub: 'SQLAlchemy, Alembic', col: 2, row: 0 },
+        { id: 'redis', label: 'Redis', sub: 'cache, pub/sub', col: 2, row: 1 },
+        { id: 'gemini', label: 'Gemini', sub: 'OCR, i18n, chat SSE', col: 2, row: 2 },
         { id: 'stripe', label: 'Stripe Connect', sub: 'payments', col: 2, row: 3 },
       ],
       edges: [
@@ -246,10 +246,10 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'tinyx',
     title: 'TinyX',
-    kind: { en: 'Microservices · EPITA', fr: 'Microservices · EPITA' },
+    kind: { en: 'Microservices project at EPITA', fr: 'Projet microservices à l’EPITA' },
     pitch: {
-      en: 'A small X/Twitter clone split into Java Quarkus microservices built for high traffic — delivered by a team of 14 that I led.',
-      fr: 'Un mini-clone de X/Twitter découpé en microservices Java Quarkus pensés pour un fort trafic — livré par une équipe de 14 que j’ai pilotée.',
+      en: 'A small X/Twitter clone split into Java Quarkus microservices built for high traffic, delivered by a team of 14 that I led.',
+      fr: 'Un mini-clone de X/Twitter découpé en microservices Java Quarkus pensés pour un fort trafic, livré par une équipe de 14 que j’ai pilotée.',
     },
     period: { en: 'TODO(lucas): dates', fr: 'TODO(lucas): dates' },
     role: { en: 'Team lead', fr: 'Pilotage de l’équipe' },
@@ -280,7 +280,7 @@ export const caseStudies: CaseStudy[] = [
       rows: 3,
       nodes: [
         { id: 'client', label: 'Clients', sub: 'REST', col: 0, row: 1 },
-        { id: 'svc', label: 'Quarkus services', sub: 'Java · microservices', col: 1, row: 1 },
+        { id: 'svc', label: 'Quarkus services', sub: 'Java, microservices', col: 1, row: 1 },
         { id: 'redis', label: 'Redis', sub: 'pub/sub events', col: 2, row: 0 },
         { id: 'es', label: 'Elasticsearch', sub: 'search', col: 2, row: 1 },
         { id: 'neo4j', label: 'Neo4j', sub: 'follow graph', col: 2, row: 2 },
@@ -303,16 +303,16 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'nyos-apr',
     title: 'NYOS APR',
-    kind: { en: 'Pharma quality SaaS · team NYOS', fr: 'SaaS qualité pharma · équipe NYOS' },
+    kind: { en: 'Pharma quality SaaS, team NYOS', fr: 'SaaS qualité pharma, équipe NYOS' },
     pitch: {
       en: 'Annual Product Review platform for pharmaceutical quality teams: drift and anomaly detection, a Gemini assistant and AI-drafted reports exported to PDF.',
       fr: 'Plateforme d’Annual Product Review pour la qualité pharmaceutique : détection de dérives et d’anomalies, assistant Gemini et rapports rédigés par IA exportés en PDF.',
     },
-    period: { en: 'Jan – Jun 2026', fr: 'janv. – juin 2026' },
+    period: { en: 'Jan to Jun 2026', fr: 'janv. à juin 2026' },
     role: { en: 'TODO(lucas): your part of the work', fr: 'TODO(lucas): ta part du travail' },
     team: {
-      en: 'Team NYOS, Google Cloud hackathon — TODO(lucas): team size',
-      fr: 'Équipe NYOS, hackathon Google Cloud — TODO(lucas): taille de l’équipe',
+      en: 'Team NYOS, Google Cloud hackathon, TODO(lucas): team size',
+      fr: 'Équipe NYOS, hackathon Google Cloud, TODO(lucas): taille de l’équipe',
     },
     context: {
       en: 'Each year, pharmaceutical manufacturers compile a product’s batch, QC, complaint and CAPA data into an Annual Product Review. NYOS APR analyses that data, flags process drifts and drafts the report.',
@@ -329,8 +329,8 @@ export const caseStudies: CaseStudy[] = [
       {
         title: { en: 'Synthetic data with hidden incidents', fr: 'Des données synthétiques avec des incidents cachés' },
         body: {
-          en: 'Real manufacturing data is confidential, so the team built a generator for 9 data categories over 2020–2025, with planted events (equipment degradation, a supplier issue, a seasonal effect) to test whether the analysis finds them.',
-          fr: 'Les vraies données de production sont confidentielles : l’équipe a construit un générateur pour 9 catégories de données sur 2020–2025, avec des événements cachés (usure d’équipement, problème fournisseur, effet saisonnier) pour vérifier que l’analyse les retrouve.',
+          en: 'Real manufacturing data is confidential, so the team built a generator for 9 data categories from 2020 to 2025, with planted events (equipment degradation, a supplier issue, a seasonal effect) to test whether the analysis finds them.',
+          fr: 'Les vraies données de production sont confidentielles : l’équipe a construit un générateur pour 9 catégories de données de 2020 à 2025, avec des événements cachés (usure d’équipement, problème fournisseur, effet saisonnier) pour vérifier que l’analyse les retrouve.',
         },
       },
       {
@@ -360,10 +360,10 @@ export const caseStudies: CaseStudy[] = [
       cols: 3,
       rows: 4,
       nodes: [
-        { id: 'spa', label: 'React front-end', sub: 'Vite · Recharts', col: 0, row: 1 },
+        { id: 'spa', label: 'React front-end', sub: 'Vite, Recharts', col: 0, row: 1 },
         { id: 'api', label: 'FastAPI', sub: '5 routers', col: 1, row: 1 },
         { id: 'gen', label: 'Data generator', sub: '9 categories', col: 1, row: 3 },
-        { id: 'gemini', label: 'Gemini', sub: 'chat · reports', col: 2, row: 0 },
+        { id: 'gemini', label: 'Gemini', sub: 'chat, reports', col: 2, row: 0 },
         { id: 'db', label: 'SQLite', sub: '16 tables', col: 2, row: 1 },
         { id: 'pdf', label: 'PDF export', col: 2, row: 2 },
       ],
@@ -395,24 +395,24 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'ecomuni',
     title: 'EcoMuni',
-    kind: { en: 'Energy SaaS · IONIS GoodWill’s contest', fr: 'SaaS énergie · concours IONIS GoodWill’s' },
+    kind: { en: 'Energy SaaS for the IONIS GoodWill’s contest', fr: 'SaaS énergie pour le concours IONIS GoodWill’s' },
     pitch: {
-      en: 'Energy-optimisation SaaS for French municipalities: consumption dashboard, AI anomaly detection, a Gemini assistant and Décret Tertiaire tracking — with no sensors and no works.',
-      fr: 'SaaS d’optimisation énergétique pour les communes : tableau de bord des consommations, détection d’anomalies par IA, assistant Gemini et suivi du Décret Tertiaire — sans capteurs ni travaux.',
+      en: 'Energy-optimisation SaaS for French municipalities: consumption dashboard, AI anomaly detection, a Gemini assistant and Décret Tertiaire tracking, with no sensors and no works.',
+      fr: 'SaaS d’optimisation énergétique pour les communes : tableau de bord des consommations, détection d’anomalies par IA, assistant Gemini et suivi du Décret Tertiaire, sans capteurs ni travaux.',
     },
     period: { en: 'Jan 2026', fr: 'janv. 2026' },
     role: { en: 'Solo: product, design and development', fr: 'Solo : produit, design et développement' },
     team: { en: 'Solo entry, IONIS GoodWill’s contest (EPITA)', fr: 'Candidature solo, concours IONIS GoodWill’s (EPITA)' },
     context: {
-      en: 'Public buildings are a large share of a town’s running costs and CO₂ emissions, and every euro lost to energy waste is a euro less for schools or social services. Under the Décret Tertiaire, municipalities must also track and cut that consumption — but bills arrive after the fact and existing tools target large cities.',
-      fr: 'Les bâtiments publics pèsent lourd dans les dépenses de fonctionnement et les émissions de CO₂ d’une commune, et chaque euro gaspillé en énergie manque à l’école ou au social. Avec le Décret Tertiaire, les communes doivent en plus suivre et réduire ces consommations — mais les factures arrivent après coup et les outils existants visent les grandes métropoles.',
+      en: 'Public buildings are a large share of a town’s running costs and CO₂ emissions, and every euro lost to energy waste is a euro less for schools or social services. Under the Décret Tertiaire, municipalities must also track and cut that consumption, but bills arrive after the fact and existing tools target large cities.',
+      fr: 'Les bâtiments publics pèsent lourd dans les dépenses de fonctionnement et les émissions de CO₂ d’une commune, et chaque euro gaspillé en énergie manque à l’école ou au social. Avec le Décret Tertiaire, les communes doivent en plus suivre et réduire ces consommations, mais les factures arrivent après coup et les outils existants visent les grandes métropoles.',
     },
     decisions: [
       {
         title: { en: 'No sensors, no works: start from the bills', fr: 'Sans capteurs ni travaux : partir des factures' },
         body: {
-          en: 'EcoMuni works from data towns already have — energy bills, consumption history, local weather and building type — so it deploys in hours. Incumbents (Deepki, Ubigreen, Energisme…) need sensors and cost €10–50k a year; the target price is about €1,100.',
-          fr: 'EcoMuni s’appuie sur les données que les communes ont déjà — factures, historiques de consommation, météo locale et type de bâtiment — et se déploie en quelques heures. Les acteurs en place (Deepki, Ubigreen, Energisme…) demandent des capteurs et coûtent 10 à 50 k€ par an ; le prix visé est d’environ 1 100 €.',
+          en: 'EcoMuni works from data towns already have (energy bills, consumption history, local weather and building type), so it deploys in hours. Incumbents such as Deepki, Ubigreen or Energisme need sensors and cost €10k to €50k a year; the target price is about €1,100.',
+          fr: 'EcoMuni s’appuie sur les données que les communes ont déjà (factures, historiques de consommation, météo locale et type de bâtiment) et se déploie en quelques heures. Les acteurs en place comme Deepki, Ubigreen ou Energisme demandent des capteurs et coûtent 10 à 50 k€ par an ; le prix visé est d’environ 1 100 €.',
         },
       },
       {
@@ -432,14 +432,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     metrics: [
       { value: '0', caption: { en: 'sensors or works required', fr: 'capteur ou travaux requis' } },
-      { value: '~€1.1k', caption: { en: 'target price per year (incumbents: €10–50k)', fr: 'prix visé par an (concurrents : 10–50 k€)' } },
+      { value: '~€1.1k', caption: { en: 'target price per year, against €10k to €50k for incumbents', fr: 'prix visé par an, contre 10 à 50 k€ chez les concurrents' } },
     ],
     diagram: {
       title: { en: 'Architecture', fr: 'Architecture' },
       cols: 3,
       rows: 3,
       nodes: [
-        { id: 'spa', label: 'Dashboard', sub: 'React · Vite · Leaflet', col: 0, row: 1 },
+        { id: 'spa', label: 'Dashboard', sub: 'React, Vite, Leaflet', col: 0, row: 1 },
         { id: 'api', label: 'FastAPI', sub: 'Docker', col: 1, row: 1 },
         { id: 'anomaly', label: 'Anomaly detection', col: 2, row: 0 },
         { id: 'gemini', label: 'Gemini', sub: 'assistant', col: 2, row: 1 },

@@ -6,6 +6,7 @@ import { fr } from '@/content/dictionaries/fr';
 import { education, timeline, work } from '@/content/experience';
 import { caseStudies, flagshipProjects, heroMetrics, labProjects, productProjects } from '@/content/projects';
 import { cvFor } from '@/content/site';
+import { deliverables, explanations } from '@/content/approach';
 import { skillGroups } from '@/content/skills';
 import { locales, type Shot } from '@/content/types';
 
@@ -45,7 +46,7 @@ describe('dictionaries', () => {
 
 describe('project content', () => {
   it('has every localized field filled in both languages', () => {
-    const content = { caseStudies, productProjects, labProjects, heroMetrics, skillGroups, work, education };
+    const content = { caseStudies, productProjects, labProjects, heroMetrics, skillGroups, work, education, explanations, deliverables };
     for (const [path, field] of localized(content)) {
       for (const l of locales) expect(String(field[l] ?? '').trim(), `${path}.${l}`).not.toBe('');
     }
@@ -69,6 +70,19 @@ describe('project content', () => {
 
   it('links grouped product cards to existing case studies', () => {
     for (const p of productProjects) for (const part of p.parts ?? []) expect(caseStudies.map((c) => c.slug)).toContain(part.slug);
+  });
+
+  it('links every two-way explanation to an existing case study', () => {
+    for (const e of explanations) if (e.slug) expect(caseStudies.map((c) => c.slug)).toContain(e.slug);
+  });
+
+  it('keeps visible copy free of em dashes, arrows and middots', () => {
+    const banned = /[—→·]/;
+    const content = { caseStudies, productProjects, labProjects, heroMetrics, skillGroups, work, education, explanations, deliverables };
+    for (const [path, field] of localized(content)) {
+      for (const l of locales) expect(String(field[l]), `${path}.${l}`).not.toMatch(banned);
+    }
+    for (const [k, v] of [...leaves(en as unknown as Tree), ...leaves(fr as unknown as Tree)]) expect(v, k).not.toMatch(banned);
   });
 
   it('keeps confidential work free of public links', () => {
@@ -101,7 +115,7 @@ describe('timeline', () => {
 
 describe('cvFor', () => {
   it('returns the own-language CV or flags the fallback', () => {
-    expect(cvFor('fr')).toEqual({ href: '/cv-lucas-zivan.pdf', fallback: false });
-    expect(cvFor('en').href).toBe('/cv-lucas-zivan.pdf');
+    expect(cvFor('en')).toEqual({ href: '/cv-lucas-zivan.pdf', fallback: false });
+    expect(cvFor('fr')).toEqual({ href: '/cv-lucas-zivan.pdf', fallback: true });
   });
 });

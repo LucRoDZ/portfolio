@@ -11,12 +11,12 @@ type Layer = { name: L; nodes: Node[]; link?: string };
 const layers: Layer[] = [
   {
     name: { en: 'Client', fr: 'Client' },
-    link: 'REST · SSE',
+    link: 'REST, SSE',
     nodes: [
-      { label: 'Vue 3 · Pinia' },
+      { label: 'Vue 3, Pinia' },
       { label: 'Voice dictation', built: true },
       { label: 'Projects', built: true },
-      { label: 'Responsive · i18n', built: true },
+      { label: 'Responsive, i18n', built: true },
     ],
   },
   {
@@ -32,7 +32,7 @@ const layers: Layer[] = [
   {
     name: { en: 'Orchestration', fr: 'Orchestration' },
     nodes: [
-      { label: 'LangChain · LangGraph' },
+      { label: 'LangChain, LangGraph' },
       { label: 'docx / xlsx tools', built: true },
     ],
   },
@@ -40,7 +40,7 @@ const layers: Layer[] = [
     name: { en: 'AI providers', fr: 'Fournisseurs IA' },
     nodes: [
       { label: 'GPT-4o' },
-      { label: 'Gemini · JSON schema', built: true },
+      { label: 'Gemini, JSON schema', built: true },
       { label: 'Mistral OCR', built: true },
       { label: 'Whisper', built: true },
       { label: 'DeepL', built: true },
@@ -49,8 +49,8 @@ const layers: Layer[] = [
   {
     name: { en: 'Data', fr: 'Données' },
     nodes: [
-      { label: 'PostgreSQL · pgvector' },
-      { label: 'Files · 48 h links', built: true },
+      { label: 'PostgreSQL, pgvector' },
+      { label: 'Files with 48 h links', built: true },
     ],
   },
 ];
@@ -79,7 +79,7 @@ function Chip({ node }: { node: Node }) {
 function Row({ layer, locale }: { layer: Layer; locale: Locale }) {
   return (
     <div className="grid grid-cols-[5.5rem_1fr] items-start gap-3 sm:grid-cols-[7rem_1fr]">
-      <p className="pt-1 font-mono text-micro uppercase text-muted">{t(layer.name, locale)}</p>
+      <p className="pt-1 text-meta text-muted">{t(layer.name, locale)}</p>
       <ul className="flex flex-wrap gap-1.5">
         {layer.nodes.map((n) => (
           <Chip key={n.label} node={n} />

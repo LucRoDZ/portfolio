@@ -64,9 +64,9 @@
   @apply rounded-lg border border-rule bg-surface shadow-card;
 }
 
-/* Small uppercase mono label above headings. */
+/* Short label above a heading: plain words in the accent colour. */
 @utility eyebrow {
-  @apply font-mono text-micro font-medium uppercase text-accent;
+  @apply text-meta font-strong text-accent;
 }
 
 @utility meta {
@@ -88,10 +88,6 @@
 }
 @utility btn-ghost {
   @apply btn border-transparent text-fg hover:text-accent;
-}
-
-@utility pill {
-  @apply inline-flex items-center rounded-full bg-pill px-2.5 py-0.5 font-mono text-micro font-medium tracking-normal text-on-pill;
 }
 
 /* Unfilled TODO(lucas) copy, visible in development only. */

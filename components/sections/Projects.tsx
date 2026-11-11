@@ -10,7 +10,7 @@ import { SectionHeading } from '../SectionHeading';
 
 function TierLabel({ children, id }: { children: string; id: string }) {
   return (
-    <h3 id={id} className="flex items-center gap-4 font-mono text-micro font-medium uppercase text-muted">
+    <h3 id={id} className="flex items-center gap-4 text-h4 font-strong">
       {children}
       <span aria-hidden="true" className="h-px flex-1 bg-rule" />
     </h3>
@@ -33,7 +33,7 @@ export function Projects({ locale, dict }: { locale: Locale; dict: Dictionary })
   return (
     <section id="projects" aria-labelledby="projects-title" className="section">
       <div className="page">
-        <SectionHeading index={1} id="projects-title" label={projects.label} title={projects.title} intro={projects.intro} />
+        <SectionHeading id="projects-title" label={projects.label} title={projects.title} intro={projects.intro} />
 
         <div className="mt-14 space-y-6" role="group" aria-labelledby="tier-1">
           <TierLabel id="tier-1">{projects.tier1Label}</TierLabel>

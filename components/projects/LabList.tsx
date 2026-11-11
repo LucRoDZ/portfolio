@@ -44,7 +44,7 @@ export function LabList({ rows, labels }: { rows: LabRow[]; labels: LabLabels })
               type="button"
               aria-pressed={filter === o}
               onClick={() => setFilter(o)}
-              className="min-h-9 rounded-full border border-rule bg-surface px-4 font-mono text-micro uppercase text-muted transition-colors hover:border-rule-strong hover:text-fg aria-pressed:border-fg aria-pressed:bg-fg aria-pressed:text-bg"
+              className="min-h-9 rounded-full border border-rule bg-surface px-4 text-meta font-medium text-muted transition-colors hover:border-rule-strong hover:text-fg aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-on-accent"
             >
               {o === 'all' ? labels.all : labels.categories[o]}
             </button>
@@ -56,7 +56,7 @@ export function LabList({ rows, labels }: { rows: LabRow[]; labels: LabLabels })
       </div>
 
       <div className="card mt-6 overflow-hidden">
-        <div aria-hidden="true" className="hidden grid-cols-12 gap-6 border-b border-rule bg-sunken px-6 py-3 font-mono text-micro uppercase text-muted md:grid">
+        <div aria-hidden="true" className="hidden grid-cols-12 gap-6 border-b border-rule bg-sunken px-6 py-3 text-meta font-medium text-muted md:grid">
           <span className="col-span-3">{labels.project}</span>
           <span className="col-span-6">{labels.summary}</span>
           <span className="col-span-3">{labels.stack}</span>
@@ -77,8 +77,8 @@ export function LabList({ rows, labels }: { rows: LabRow[]; labels: LabLabels })
                 ) : (
                   <span className="font-strong">{r.title}</span>
                 )}
-                <p className="mt-1 font-mono text-micro text-muted">
-                  {labels.categories[r.category]} · {r.kind}
+                <p className="mt-1 text-meta text-muted">
+                  {labels.categories[r.category]}, {r.kind}
                 </p>
               </div>
               <div className="flex gap-4 md:col-span-6">
@@ -96,13 +96,7 @@ export function LabList({ rows, labels }: { rows: LabRow[]; labels: LabLabels })
                 )}
                 <p className="text-muted">{r.summary}</p>
               </div>
-              <ul className="flex flex-wrap content-start gap-1.5 md:col-span-3">
-                {r.stack.map((s) => (
-                  <li key={s} className="pill">
-                    {s}
-                  </li>
-                ))}
-              </ul>
+              <p className="font-mono text-meta text-on-pill md:col-span-3">{r.stack.join(', ')}</p>
             </li>
           ))}
         </ul>

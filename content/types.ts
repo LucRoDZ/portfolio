@@ -54,7 +54,7 @@ export interface Shot {
 export interface CaseStudy {
   slug: string;
   title: string;
-  /** Short context line above the title, e.g. "Internship · Asmodee". */
+  /** Short context line above the title, e.g. "Internship at Asmodee". */
   kind: L;
   pitch: L;
   period: L;
@@ -111,4 +111,13 @@ export interface TimelineEntry {
   place: L;
   bullets: L[];
   stack?: string[];
+}
+
+/** One real decision, explained once for an engineering team and once for a decision-maker. */
+export interface TwoWayExplanation {
+  project: string;
+  slug?: string;
+  topic: L;
+  technical: L;
+  business: L;
 }

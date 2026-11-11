@@ -14,7 +14,7 @@ export function Contact({ locale, dict }: { locale: Locale; dict: Dictionary }) 
   ];
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="pt-4 pb-24 md:pb-28">
+    <section id="contact" aria-labelledby="contact-title" className="pb-20 md:pb-28">
       <div className="page">
         <div className="card relative overflow-hidden p-6 sm:p-10 lg:p-14">
           <div
@@ -23,11 +23,7 @@ export function Contact({ locale, dict }: { locale: Locale; dict: Dictionary }) 
           />
           <div className="relative grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <p className="eyebrow flex items-center gap-3">
-                <span>04</span>
-                <span aria-hidden="true" className="h-px w-8 bg-accent" />
-                <span>{contact.label}</span>
-              </p>
+              <p className="eyebrow">{contact.label}</p>
               <h2 id="contact-title" className="mt-4 text-h3 font-strong text-balance md:text-h1">
                 {contact.title}
               </h2>
@@ -58,7 +54,7 @@ export function Contact({ locale, dict }: { locale: Locale; dict: Dictionary }) 
                       <c.icon className="size-4" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block font-mono text-micro uppercase text-muted">{c.label}</span>
+                      <span className="block text-meta text-muted">{c.label}</span>
                       <span className="block truncate font-medium group-hover:text-accent">{c.value}</span>
                     </span>
                     <ArrowUpRight className="size-4 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />

@@ -4,10 +4,10 @@ export const work: TimelineEntry[] = [
   {
     start: '2025-12',
     type: 'work',
-    period: { en: 'Dec 2025 – now', fr: 'déc. 2025 – aujourd’hui' },
+    period: { en: 'Since Dec 2025', fr: 'Depuis déc. 2025' },
     title: { en: 'Freelance developer & consultant', fr: 'Développeur & consultant freelance' },
     org: 'Auto-entrepreneur',
-    place: { en: 'Paris · remote', fr: 'Paris · à distance' },
+    place: { en: 'Paris and remote', fr: 'Paris et à distance' },
     bullets: [
       {
         en: 'Scope client needs into phased roadmaps (Jira, GitHub Projects) and UX mockups (Figma).',
@@ -27,10 +27,10 @@ export const work: TimelineEntry[] = [
   {
     start: '2025-09',
     type: 'work',
-    period: { en: 'Sept 2025 – Jan 2026', fr: 'sept. 2025 – janv. 2026' },
+    period: { en: 'Sept 2025 to Jan 2026', fr: 'sept. 2025 à janv. 2026' },
     title: { en: 'Full-stack developer intern', fr: 'Stagiaire développeur full-stack' },
     org: 'Asmodee',
-    place: { en: 'Boulogne-Billancourt · AI & Data team', fr: 'Boulogne-Billancourt · équipe IA & Data' },
+    place: { en: 'Boulogne-Billancourt, AI and Data team', fr: 'Boulogne-Billancourt, équipe IA et Data' },
     bullets: [
       {
         en: 'Built an LLM-powered file generation service for a multi-LLM platform used by 800+ employees; benchmarked 3 models and cut the error rate from 13% to 4%.',
@@ -57,7 +57,7 @@ export const education: TimelineEntry[] = [
   {
     start: '2026-09',
     type: 'education',
-    period: { en: 'Sept 2026 – Jan 2027', fr: 'sept. 2026 – janv. 2027' },
+    period: { en: 'Sept 2026 to Jan 2027', fr: 'sept. 2026 à janv. 2027' },
     title: { en: 'Exchange semester', fr: 'Semestre d’échange' },
     org: 'Shibaura Institute of Technology',
     place: { en: 'Tokyo, Japan', fr: 'Tokyo, Japon' },
@@ -71,8 +71,8 @@ export const education: TimelineEntry[] = [
   {
     start: '2024-09',
     type: 'education',
-    period: { en: '2024 – 2027', fr: '2024 – 2027' },
-    title: { en: 'Engineering degree · Global IT Management major', fr: 'Cycle ingénieur · majeure Global IT Management' },
+    period: { en: '2024 to 2027', fr: '2024 à 2027' },
+    title: { en: 'Engineering degree, Global IT Management major', fr: 'Cycle ingénieur, majeure Global IT Management' },
     org: 'EPITA',
     place: { en: 'Paris', fr: 'Paris' },
     bullets: [
@@ -85,7 +85,7 @@ export const education: TimelineEntry[] = [
   {
     start: '2022-09',
     type: 'education',
-    period: { en: '2022 – 2024', fr: '2022 – 2024' },
+    period: { en: '2022 to 2024', fr: '2022 à 2024' },
     title: { en: 'Preparatory classes (CPGE)', fr: 'Classes préparatoires (CPGE)' },
     org: 'Lycée Camille Guérin',
     place: { en: 'Poitiers', fr: 'Poitiers' },
@@ -99,11 +99,11 @@ export function timeline(entries: TimelineEntry[] = [...work, ...education]): Ti
 }
 
 export const earlier: L = {
-  en: 'Software development intern at Serli (2019, a mobile app in JavaScript) · Production operator at Elis (summer 2024).',
-  fr: 'Stage de développement chez Serli (2019, application mobile en JavaScript) · Opérateur de production chez Elis (été 2024).',
+  en: 'Software development intern at Serli (2019, a mobile app in JavaScript) and production operator at Elis (summer 2024).',
+  fr: 'Stage de développement chez Serli (2019, application mobile en JavaScript) et opérateur de production chez Elis (été 2024).',
 };
 
 export const languages: L = {
-  en: 'French (native) · English (TOEIC 825)',
-  fr: 'Français (langue maternelle) · Anglais (TOEIC 825)',
+  en: 'French (native), English (TOEIC 825)',
+  fr: 'Français (langue maternelle), anglais (TOEIC 825)',
 };

@@ -64,7 +64,7 @@ export async function renderOg({
                 borderLeft: i > 0 ? `1px solid ${c.rule}` : 'none',
               }}
             >
-              <span style={{ fontFamily: 'Mono', fontSize: 40, color: c.accent }}>{m.value.replace(/\s*→\s*/, ' → ')}</span>
+              <span style={{ fontFamily: 'Mono', fontSize: 40, color: c.accent }}>{m.value}</span>
               <span style={{ fontFamily: 'Mono', fontSize: 17, color: c.muted, marginTop: 6, paddingRight: 16 }}>{m.caption}</span>
             </div>
           ))}

@@ -95,7 +95,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   <div key={m.value} className="card flex flex-col-reverse justify-end gap-2 p-5">
                     <dt className="text-meta text-muted">{t(m.caption, locale)}</dt>
                     <dd>
-                      <MetricValue value={m.value} to={dict.common.to} className="text-h3 whitespace-nowrap text-accent" />
+                      <MetricValue value={m.value} className="text-h3 whitespace-nowrap text-accent" />
                     </dd>
                   </div>
                 ))}
@@ -109,38 +109,34 @@ export default async function CaseStudyPage({ params }: Props) {
             <dl className="card space-y-5 p-6 lg:sticky lg:top-24">
               {facts.map((f) => (
                 <div key={f.label}>
-                  <dt className="font-mono text-micro uppercase text-muted">{f.label}</dt>
+                  <dt className="text-meta text-muted">{f.label}</dt>
                   <Copy text={f.value} as="dd" className="mt-1 font-medium" />
                 </div>
               ))}
               <div>
-                <dt className="font-mono text-micro uppercase text-muted">{cs.stack}</dt>
-                <dd className="mt-2 flex flex-wrap gap-1.5">
-                  {project.stack.map((s) => (
-                    <span key={s} className="pill">
-                      {s}
-                    </span>
-                  ))}
-                </dd>
+                <dt className="text-meta text-muted">{cs.stack}</dt>
+                <dd className="mt-1 font-mono text-meta text-on-pill">{project.stack.join(', ')}</dd>
               </div>
-              <div>
-                <dt className="font-mono text-micro uppercase text-muted">{cs.links}</dt>
-                {project.links.length > 0 ? (
-                  project.links.map((l) => (
-                    <dd key={l.href}>
-                      <a href={l.href} className="link inline-flex min-h-11 items-center gap-1.5 font-medium" rel="noopener noreferrer">
-                        {cs.linkLabels[l.kind]}
-                        <ArrowUpRight className="size-3.5" />
-                      </a>
+              {(project.links.length > 0 || project.confidential) && (
+                <div>
+                  <dt className="text-meta text-muted">{cs.links}</dt>
+                  {project.links.length > 0 ? (
+                    project.links.map((l) => (
+                      <dd key={l.href}>
+                        <a href={l.href} className="link inline-flex min-h-11 items-center gap-1.5 font-medium" rel="noopener noreferrer">
+                          {cs.linkLabels[l.kind]}
+                          <ArrowUpRight className="size-3.5" />
+                        </a>
+                      </dd>
+                    ))
+                  ) : (
+                    <dd className="mt-1 flex gap-2 text-meta text-muted">
+                      <Lock className="mt-0.5 size-4 shrink-0" />
+                      {cs.confidential}
                     </dd>
-                  ))
-                ) : (
-                  <dd className="mt-1 flex gap-2 text-meta text-muted">
-                    {project.confidential && <Lock className="mt-0.5 size-4 shrink-0" />}
-                    {project.confidential ? cs.confidential : '—'}
-                  </dd>
-                )}
-              </div>
+                  )}
+                </div>
+              )}
             </dl>
           </aside>
 
@@ -237,7 +233,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
             <a href={`/${locale}/projects/${next.slug}`} className="card group flex items-center justify-between gap-6 p-6 transition-shadow hover:shadow-lift">
               <span>
-                <span className="font-mono text-micro uppercase text-muted">{cs.next}</span>
+                <span className="text-meta text-muted">{cs.next}</span>
                 <span className="mt-1 block text-h3 font-strong group-hover:text-accent">{next.title}</span>
               </span>
               <ArrowRight className="size-6 shrink-0 text-accent transition-transform group-hover:translate-x-1" />

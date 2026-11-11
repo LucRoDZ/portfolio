@@ -22,6 +22,7 @@ Copy `.env.example` to `.env.local` for the optional settings (site URL, booking
 |---|---|
 | `content/dictionaries/{en,fr}.ts` | Every UI string. `fr.ts` is typed against `en.ts`, so a missing key fails the build. |
 | `content/case-studies.ts` | Case studies (detail pages), with the source of each fact. |
+| `content/approach.ts` | The "Approche" section: real decisions told for an engineering team and for management, plus deliverables. |
 | `content/projects.ts` | The three tiers on the home page: flagship case studies, product & freelance cards, filterable lab list; hero metrics. |
 | `public/projects/<slug>/` | Curated screenshots as WebP (full size + `-800`). Raw material stays in the git-ignored `Rapport Lucas ZIVAN/`. |
 | `content/experience.ts`, `content/skills.ts`, `content/site.ts` | Timeline, skill categories, e-mail / links / CV paths. |

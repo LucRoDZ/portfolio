@@ -7,6 +7,7 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
   const { nav } = dict;
   const other: Locale = locale === 'en' ? 'fr' : 'en';
   const links = [
+    { href: `/${locale}#approach`, label: nav.approach },
     { href: `/${locale}#projects`, label: nav.projects },
     { href: `/${locale}#journey`, label: nav.journey },
     { href: `/${locale}#skills`, label: nav.skills },

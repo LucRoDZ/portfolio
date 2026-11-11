@@ -9,19 +9,16 @@ export function SiteFooter({ dict }: { dict: Dictionary }) {
   ];
   return (
     <footer className="border-t border-rule">
-      <div className="page flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
+      <div className="page flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-center gap-2.5 text-meta">
           <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
           <span className="font-strong">Lucas Zivan</span>
-          <span className="text-muted">© {new Date().getFullYear()}</span>
-        </p>
-        <p className="meta">
-          {dict.footer.location} · {dict.footer.timezone}
+          <span className="text-muted">{new Date().getFullYear()}</span>
         </p>
         <ul className="flex flex-wrap gap-x-6">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="meta link inline-flex min-h-11 items-center" rel="noopener noreferrer">
+              <a href={l.href} className="link inline-flex min-h-11 items-center text-meta text-muted" rel="noopener noreferrer">
                 {l.label}
               </a>
             </li>
