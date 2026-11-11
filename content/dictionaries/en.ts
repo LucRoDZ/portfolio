@@ -4,9 +4,9 @@ export const en = {
     external: 'opens in a new tab',
   },
   meta: {
-    title: 'Lucas Zivan, software engineering and IT management',
+    title: 'Lucas Zivan, software engineering and international IT project management',
     description:
-      'Final-year engineering student at EPITA Paris, Global IT Management major. Looking for an end-of-studies internship or a permanent position from February 2027, as a Tech Lead, IT consultant or Product Manager.',
+      'Final-year engineering student at EPITA Paris, specialising in international IT project management. Looking for an end-of-studies internship or a permanent position from February 2027, as a Tech Lead, IT consultant or Product Manager.',
     caseStudyTitle: '{title}, a case study by Lucas Zivan',
     notFoundTitle: 'Page not found, Lucas Zivan',
   },
@@ -27,7 +27,7 @@ export const en = {
   hero: {
     name: 'Lucas Zivan',
     availability: 'Available in February 2027',
-    subtitle: 'Software engineering and IT management, final year of the engineering program at EPITA Paris.',
+    subtitle: 'Software engineering and international IT project management, final year of the engineering program at EPITA Paris.',
     lead: 'I am looking for an end-of-studies internship or a permanent position from February 2027, as a Tech Lead, IT consultant or Product Manager. I also work as a freelancer, from scoping the need to going live. I am currently on exchange at Shibaura Institute of Technology in Tokyo.',
     ctaContact: 'Get in touch',
     ctaProjects: 'See the projects',
@@ -70,7 +70,7 @@ export const en = {
   },
   journey: {
     label: 'Journey',
-    title: 'An engineering degree with one foot in IT management.',
+    title: 'Experience and education.',
     work: 'Experience',
     education: 'Education',
     earlierLabel: 'Earlier',

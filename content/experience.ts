@@ -77,8 +77,8 @@ export const education: TimelineEntry[] = [
     type: 'education',
     period: { en: 'Sept 2024 to Aug 2027', fr: 'sept. 2024 à août 2027' },
     title: {
-      en: 'Engineering degree (Master’s level), Computer Science and Global IT Management',
-      fr: 'Diplôme d’ingénieur (niveau Master), informatique et Global IT Management',
+      en: 'Engineering degree (Master’s level) in computer science, specialising in international IT project management',
+      fr: 'Diplôme d’ingénieur (niveau Master) en informatique, spécialisation management de projets IT internationaux',
     },
     org: 'EPITA',
     place: { en: 'Le Kremlin-Bicêtre, Paris area', fr: 'Le Kremlin-Bicêtre, Île-de-France' },
