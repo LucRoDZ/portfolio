@@ -199,10 +199,14 @@ export default async function CaseStudyPage({ params }: Props) {
                     </figure>
                   ))}
                   {phoneShots.length > 0 && (
-                    <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+                    <div
+                      className={`grid items-start gap-6 ${phoneShots.length > 2 ? 'grid-cols-2 sm:grid-cols-4' : 'max-w-2xl'}`}
+                      // Two device captures: columns sized by aspect ratio so both frames share one height.
+                      style={phoneShots.length > 2 ? undefined : { gridTemplateColumns: phoneShots.map((s) => `${(s.width / s.height).toFixed(3)}fr`).join(' ') }}
+                    >
                       {phoneShots.map((s) => (
                         <figure key={s.src}>
-                          <Shot shot={s} locale={locale} sizes="(min-width: 640px) 12rem, 45vw" />
+                          <Shot shot={s} locale={locale} sizes={phoneShots.length > 2 ? '(min-width: 640px) 12rem, 45vw' : '(min-width: 640px) 20rem, 45vw'} />
                           <figcaption className="meta mt-3">{t(s.alt, locale)}</figcaption>
                         </figure>
                       ))}

@@ -48,7 +48,7 @@ export const fr: Dictionary = {
     tier2Label: 'Tier 2 · Produit & conseil freelance',
     tier3Label: 'Tier 3 · Systems & Academic Lab',
     readCaseStudy: 'Lire l’étude de cas',
-    confidential: 'Travail en entreprise : architecture redessinée à partir d’informations publiques, sans captures.',
+    confidential: 'Travail en entreprise : ni lien public ni code ; architecture redessinée, captures anonymisées.',
     architectureTitle: 'Architecture système',
     architectureLegend: 'En surbrillance : ce que j’ai construit',
     filterLabel: 'Filtrer par domaine',
@@ -111,7 +111,7 @@ export const fr: Dictionary = {
     differently: 'Ce que je ferais autrement',
     next: 'Étude de cas suivante',
     linkLabels: { live: 'Site en ligne', demo: 'Vidéo de démo', github: 'Code sur GitHub' },
-    confidential: 'Outil interne : pas de lien public ni de captures. Les détails se limitent à ce qui est public.',
+    confidential: 'Outil interne : ni lien public ni code. Les captures sont anonymisées et les détails se limitent à ce qui est public.',
   },
   notFound: {
     title: 'Cette page n’existe pas.',

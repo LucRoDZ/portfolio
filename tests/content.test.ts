@@ -71,8 +71,8 @@ describe('project content', () => {
     for (const p of productProjects) for (const part of p.parts ?? []) expect(caseStudies.map((c) => c.slug)).toContain(part.slug);
   });
 
-  it('ships no screenshots for confidential work', () => {
-    for (const p of caseStudies.filter((c) => c.confidential)) expect(p.shots).toEqual([]);
+  it('keeps confidential work free of public links', () => {
+    for (const p of caseStudies.filter((c) => c.confidential)) expect(p.links).toEqual([]);
   });
 
   it('points every screenshot at both WebP sizes in public/', () => {

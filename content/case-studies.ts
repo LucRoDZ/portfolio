@@ -5,7 +5,8 @@ import { shot } from './shot';
  * Sources for every fact below:
  * - Asmodee: Lucas's verified bullets (brief of 2026-10-27), the CV and the EPITA internship report
  *   (Rapport Lucas ZIVAN/ChatBot Asmodee — kept out of git). Internal product and colleague names are
- *   deliberately left out. Screenshots and usage dashboards stay private (employer data).
+ *   deliberately left out. Only the responsive captures are published, anonymised (conversation
+ *   titles blurred, DevTools cropped); usage dashboards, cost figures and videos stay private.
  * - EASY.Q: ~/PERSO/easyq (CLAUDE.md, docs, CI, git history) and the June 2026 pitch deck.
  * - NYOS APR: ~/PERSO/NYOS-APR (README.md, TECHNICAL_SUMMARY.md) and app screenshots (June 2026).
  * - EcoMuni: the IONIS GoodWill's pitch deck (2026) and app screenshots (January 2026).
@@ -104,7 +105,24 @@ export const caseStudies: CaseStudy[] = [
     },
     stack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'PostgreSQL', 'Pytest', 'Tox', 'GitHub Actions', 'Vue 3', 'Pinia', 'Tailwind CSS'],
     links: [],
-    shots: [],
+    shots: [
+      shot(
+        'asmodee-ai-platform',
+        'tablet',
+        531,
+        698,
+        { en: 'Tablet layout after the responsive overhaul (conversation titles blurred)', fr: 'Affichage tablette après la refonte responsive (titres de conversations floutés)' },
+        'mobile',
+      ),
+      shot(
+        'asmodee-ai-platform',
+        'mobile',
+        322,
+        700,
+        { en: 'Phone layout after the responsive overhaul', fr: 'Affichage mobile après la refonte responsive' },
+        'mobile',
+      ),
+    ],
     confidential: true,
     differently: {
       en: 'OCR on long PDFs (over 50 pages) still takes 30–45 seconds; I would process pages in parallel. And I would add end-to-end tests on the main user journeys — the suite I built is unit-level only.',

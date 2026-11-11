@@ -47,7 +47,7 @@ export const en = {
     tier2Label: 'Tier 2 · Product & freelance consulting',
     tier3Label: 'Tier 3 · Systems & academic lab',
     readCaseStudy: 'Read the case study',
-    confidential: 'Employer work: architecture redrawn from public information, no screenshots.',
+    confidential: 'Employer work: no public link or code; architecture redrawn, screenshots anonymised.',
     architectureTitle: 'System architecture',
     architectureLegend: 'Highlighted: what I built',
     filterLabel: 'Filter by area',
@@ -110,7 +110,7 @@ export const en = {
     differently: 'What I would do differently',
     next: 'Next case study',
     linkLabels: { live: 'Live site', demo: 'Demo video', github: 'Source on GitHub' },
-    confidential: 'Internal tool: no public link or screenshots. Details are limited to what is public.',
+    confidential: 'Internal tool: no public link or code. Screenshots are anonymised and details are limited to what is public.',
   },
   notFound: {
     title: 'This page does not exist.',
