@@ -17,21 +17,21 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--rule-strong)_1px,transparent_1px)] [background-size:22px_22px] opacity-50 [mask-image:radial-gradient(ellipse_70%_60%_at_70%_20%,black,transparent)]"
       />
       <div className="page relative pt-14 pb-20 md:pt-24 md:pb-28">
-        <p className="flex max-w-prose items-start gap-2.5 text-meta font-medium animate-rise">
-          <span aria-hidden="true" className="mt-[0.45em] size-2 shrink-0 rounded-full bg-accent" />
+        <p className="flex items-center gap-2.5 text-meta font-medium animate-rise">
+          <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-accent" />
           {hero.availability}
         </p>
 
-        <h1
-          id="hero-title"
-          className="mt-7 max-w-5xl text-h2 font-strong text-balance animate-rise [animation-delay:60ms] sm:text-h1 lg:text-display"
-        >
+        <h1 id="hero-title" className="mt-6 text-h1 font-strong animate-rise [animation-delay:60ms] lg:text-display">
+          {hero.name}
+        </h1>
+        <p className="mt-4 max-w-3xl text-h4 font-medium text-balance animate-rise [animation-delay:100ms] md:text-h3">
           {hero.headlineBefore}
           <span className="text-accent">{hero.headlineAccent}</span>
           {hero.headlineAfter}
-        </h1>
+        </p>
 
-        <p className="mt-7 max-w-prose text-lead text-muted animate-rise [animation-delay:120ms]">{hero.lead}</p>
+        <p className="mt-6 max-w-prose text-lead text-muted animate-rise [animation-delay:140ms]">{hero.lead}</p>
 
         <div className="mt-9 flex flex-wrap gap-3 animate-rise [animation-delay:180ms]">
           <a href={`mailto:${site.email}`} className="btn-primary">

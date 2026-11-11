@@ -1,5 +1,5 @@
 /*
- * Design tokens — "warm editorial", light only. The only place raw colours, sizes and radii are
+ * Design tokens: warm editorial canvas with a technical blue accent, light only. The only place raw colours, sizes and radii are
  * defined (plus lib/brand.ts for OG images and icons, which cannot read CSS variables).
  * Contrast (WCAG, `npm run check:contrast`) is checked for every text token on bg and surface.
  */
@@ -11,11 +11,11 @@
   --muted: #6e6d67;
   --rule: #e6e1d7;
   --rule-strong: #cfc7b8;
-  --accent: #c2410c;
-  --accent-soft: #fbeee6;
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
   --on-accent: #ffffff;
-  --pill: #f1ece1;
-  --on-pill: #78350f;
+  --pill: #eff6ff;
+  --on-pill: #1e40af;
   --focus-ring: 2px;
   color-scheme: light;
 }
@@ -81,8 +81,8 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
   --shadow-*: initial;
-  --shadow-card: 0 1px 2px rgb(30 30 30 / 0.04), 0 12px 32px -18px rgb(120 53 15 / 0.18);
-  --shadow-lift: 0 2px 4px rgb(30 30 30 / 0.05), 0 24px 48px -24px rgb(120 53 15 / 0.28);
+  --shadow-card: 0 1px 2px rgb(30 30 30 / 0.04), 0 12px 32px -18px rgb(30 64 175 / 0.14);
+  --shadow-lift: 0 2px 4px rgb(30 30 30 / 0.05), 0 24px 48px -24px rgb(30 64 175 / 0.22);
 
   /* Layout: 4px spacing base, one content width, one prose width. */
   --spacing: 0.25rem;

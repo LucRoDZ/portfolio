@@ -5,9 +5,9 @@ export const fr: Dictionary = {
     external: 's’ouvre dans un nouvel onglet',
   },
   meta: {
-    title: 'Lucas Zivan, ingénieur IA et backend orienté conseil CTO',
+    title: 'Lucas Zivan, ingénieur logiciel backend et IA',
     description:
-      'Élève-ingénieur EPITA en dernière année (Global IT Management). Je conçois des systèmes IA et backend qui tiennent en production, et je les explique aux équipes techniques comme aux dirigeants. Disponible en février 2027 pour un stage de fin d’études ou un CDI en conseil CTO.',
+      'Ingénieur logiciel backend et IA, en dernière année à l’EPITA Paris (majeure Global IT Management). Stage chez Asmodee, missions freelance, SaaS EASY.Q. Je cherche un stage de fin d’études ou un CDI en conseil technique (CTO advisory) à partir de février 2027.',
     caseStudyTitle: '{title}, étude de cas de Lucas Zivan',
     notFoundTitle: 'Page introuvable, Lucas Zivan',
   },
@@ -27,11 +27,11 @@ export const fr: Dictionary = {
   },
   hero: {
     name: 'Lucas Zivan',
-    availability: 'Disponible en février 2027 pour un stage de fin d’études ou un CDI en conseil CTO. Missions freelance en parallèle.',
-    headlineBefore: 'Je conçois des ',
-    headlineAccent: 'systèmes IA et backend',
-    headlineAfter: ' qui tiennent en production, et je les explique à ceux qui décident.',
-    lead: 'Élève-ingénieur en dernière année à l’EPITA Paris, majeure Global IT Management, et en échange au Shibaura Institute of Technology à Tokyo. Chez Asmodee, j’ai mis en production des fonctionnalités IA utilisées par plus de 800 employés. En freelance, je cadre et je livre des produits complets, de la roadmap au déploiement.',
+    availability: 'Disponible en février 2027',
+    headlineBefore: 'Ingénieur logiciel ',
+    headlineAccent: 'backend et IA',
+    headlineAfter: ', en dernière année à l’EPITA Paris.',
+    lead: 'Je cherche un stage de fin d’études ou un CDI en conseil technique, aux côtés de CTO, à partir de février 2027. Chez Asmodee, j’ai développé des fonctionnalités IA pour une plateforme interne utilisée par plus de 800 employés. En freelance, je développe des applications web et des API pour des clients. Je suis actuellement en échange au Shibaura Institute of Technology, à Tokyo.',
     ctaContact: 'Me contacter',
     ctaProjects: 'Voir les projets',
     ctaCv: 'Télécharger mon CV',
@@ -41,8 +41,8 @@ export const fr: Dictionary = {
   },
   approach: {
     label: 'Approche',
-    title: 'Je parle aux ingénieurs comme aux décideurs.',
-    intro: 'Un bon choix technique ne vaut pas grand-chose si ceux qui le financent ne le comprennent pas. Voici quatre décisions réelles, racontées une fois pour l’équipe technique et une fois pour la direction.',
+    title: 'Expliquer un choix technique à l’équipe et à la direction.',
+    intro: 'Quatre décisions prises sur mes projets, décrites une fois pour les développeurs et une fois pour les personnes qui décident ou qui financent.',
     toggleLabel: 'Choisir le public',
     technical: 'Pour l’équipe technique',
     business: 'Pour la direction',
@@ -53,7 +53,7 @@ export const fr: Dictionary = {
   },
   projects: {
     label: 'Projets',
-    title: 'Des produits livrés, des systèmes qui tournent.',
+    title: 'Trois études de cas, puis le reste de mes projets.',
     intro: 'Les études de cas d’abord, puis le travail produit et conseil, puis les projets d’école qui m’ont appris les fondamentaux.',
     tier1Label: 'Études de cas',
     tier2Label: 'Produit et conseil',
@@ -92,7 +92,7 @@ export const fr: Dictionary = {
   contact: {
     label: 'Contact',
     title: 'Parlons de votre projet ou d’une opportunité.',
-    body: 'Je cherche un stage de fin d’études ou un CDI en conseil CTO à partir de février 2027, et je prends des missions freelance dès maintenant. Le plus simple est de m’écrire.',
+    body: 'Je cherche un stage de fin d’études ou un CDI en conseil technique à partir de février 2027, et je prends des missions freelance dès maintenant. Le plus simple est de m’écrire.',
     emailLabel: 'E-mail',
     cvLabel: 'CV',
     send: 'M’écrire',

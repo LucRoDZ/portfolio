@@ -2,5 +2,5 @@
   <rect width="32" height="32" rx="8" fill="#f8f6f0"/>
   <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="none" stroke="#e6e1d7"/>
   <text x="15" y="21" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="14" letter-spacing="-0.5" fill="#1e1e1e">LZ</text>
-  <circle cx="25.5" cy="23.5" r="2.5" fill="#c2410c"/>
+  <circle cx="25.5" cy="23.5" r="2.5" fill="#2563eb"/>
 </svg>

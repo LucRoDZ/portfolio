@@ -8,7 +8,7 @@ export const brand = {
   fg: '#1e1e1e',
   muted: '#6e6d67',
   rule: '#e6e1d7',
-  accent: '#c2410c',
-  pill: '#f1ece1',
-  onPill: '#78350f',
+  accent: '#2563eb',
+  pill: '#eff6ff',
+  onPill: '#1e40af',
 } as const;
