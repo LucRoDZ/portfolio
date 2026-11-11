@@ -58,27 +58,42 @@ export const education: TimelineEntry[] = [
     start: '2026-09',
     type: 'education',
     period: { en: 'Sept 2026 to Jan 2027', fr: 'sept. 2026 à janv. 2027' },
-    title: { en: 'Exchange semester', fr: 'Semestre d’échange' },
+    title: { en: 'Exchange semester, Computer Science Engineering', fr: 'Semestre d’échange, Computer Science Engineering' },
     org: 'Shibaura Institute of Technology',
-    place: { en: 'Tokyo, Japan', fr: 'Tokyo, Japon' },
+    place: { en: 'Tokyo, Japan, Master 2 level', fr: 'Tokyo, Japon, niveau Master 2' },
     bullets: [
       {
-        en: 'Advanced Cognitive Ergonomics; Introduction to Affective Computing.',
-        fr: 'Advanced Cognitive Ergonomics ; Introduction to Affective Computing.',
+        en: 'Five-month semester at a Japanese engineering university known for its strong ties with industry, alongside Japanese and international students.',
+        fr: 'Semestre de cinq mois dans une université d’ingénieurs japonaise reconnue pour ses liens avec l’industrie, avec des étudiants japonais et internationaux.',
+      },
+      {
+        en: 'Coursework: Management of Innovation and International Marketing, Advanced Cognitive Ergonomics, Introduction to Affective Computing.',
+        fr: 'Cours : Management of Innovation and International Marketing, Advanced Cognitive Ergonomics, Introduction to Affective Computing.',
       },
     ],
   },
   {
     start: '2024-09',
     type: 'education',
-    period: { en: '2024 to 2027', fr: '2024 à 2027' },
-    title: { en: 'Engineering degree, Global IT Management major', fr: 'Cycle ingénieur, majeure Global IT Management' },
+    period: { en: 'Sept 2024 to Aug 2027', fr: 'sept. 2024 à août 2027' },
+    title: {
+      en: 'Engineering degree (Master’s level), Computer Science and Global IT Management',
+      fr: 'Diplôme d’ingénieur (niveau Master), informatique et Global IT Management',
+    },
     org: 'EPITA',
-    place: { en: 'Paris', fr: 'Paris' },
+    place: { en: 'Le Kremlin-Bicêtre, Paris area', fr: 'Le Kremlin-Bicêtre, Île-de-France' },
     bullets: [
       {
-        en: 'Software engineering (C, C++, Java, microservices) and IT management: project management, business simulation, answering calls for tender.',
-        fr: 'Ingénierie logicielle (C, C++, Java, microservices) et management des SI : gestion de projet, simulation d’entreprise, réponse à appel d’offres.',
+        en: 'Global IT Management major, taught entirely in English: technical depth combined with steering IT projects, governance, risk and teams in an international context.',
+        fr: 'Majeure Global IT Management, entièrement en anglais, qui associe la technique au pilotage de projets IT, à la gouvernance, au risque et au management d’équipes dans un contexte international.',
+      },
+      {
+        en: 'Coursework: IT governance, data governance, cyber risk management, Agile project delivery, vendor management, pitch and executive communication.',
+        fr: 'Cours : gouvernance des SI, gouvernance des données, gestion du risque cyber, conduite de projet Agile, gestion des fournisseurs, pitch et communication auprès de la direction.',
+      },
+      {
+        en: 'The engineering cycle started with EPITA’s intensive “Piscines”: algorithms and programming in several languages through solo and team projects (C, C++, Java).',
+        fr: 'Le cycle a commencé par les « Piscines » intensives de l’EPITA : algorithmique et programmation dans plusieurs langages, en projets solo et en équipe (C, C++, Java).',
       },
     ],
   },
@@ -86,10 +101,23 @@ export const education: TimelineEntry[] = [
     start: '2022-09',
     type: 'education',
     period: { en: '2022 to 2024', fr: '2022 à 2024' },
-    title: { en: 'Preparatory classes (CPGE)', fr: 'Classes préparatoires (CPGE)' },
+    title: { en: 'Preparatory classes (CPGE), MP2I then MPI', fr: 'Classes préparatoires (CPGE), MP2I puis MPI' },
     org: 'Lycée Camille Guérin',
     place: { en: 'Poitiers', fr: 'Poitiers' },
-    bullets: [],
+    bullets: [
+      {
+        en: 'Two-year intensive program in mathematics, physics and computer science, preparing for the competitive entrance exams of French engineering schools.',
+        fr: 'Deux ans de programme intensif en mathématiques, physique et informatique, préparant aux concours des écoles d’ingénieurs.',
+      },
+      {
+        en: 'Computer science: algorithms and data structures, graph and text algorithms, complexity, memory management, C and OCaml, relational databases (SQL).',
+        fr: 'Informatique : algorithmique et structures de données, algorithmes de graphes et de texte, complexité, gestion de la mémoire, C et OCaml, bases de données relationnelles (SQL).',
+      },
+      {
+        en: 'Mathematics and physics: linear algebra, analysis, probability and statistics, mechanics, thermodynamics, electromagnetism.',
+        fr: 'Mathématiques et physique : algèbre linéaire, analyse, probabilités et statistiques, mécanique, thermodynamique, électromagnétisme.',
+      },
+    ],
   },
 ];
 
